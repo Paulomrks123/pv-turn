@@ -9,6 +9,16 @@ import podcastImg from "@/assets/podcast.jpg";
 import companyVisitImg from "@/assets/company-visit.jpg";
 import trainingImg from "@/assets/training-center.jpg";
 
+// Helper to highlight X in TurnX words
+function highlightX(text: string) {
+  const parts = text.split(/(TurnX|TURNX)/g);
+  return parts.map((part, i) => {
+    if (part === "TurnX") return <span key={i}>Turn<span className="text-gradient-gold">X</span></span>;
+    if (part === "TURNX") return <span key={i}>TURN<span className="text-gradient-gold">X</span></span>;
+    return part;
+  });
+}
+
 // Intersection Observer hook for scroll animations
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
