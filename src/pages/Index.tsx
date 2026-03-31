@@ -293,7 +293,7 @@ function FinalCTA() {
           <p className="text-muted-foreground mb-8 max-w-md mx-auto">
             O TurnX Clube é uma comunidade curada. Cada novo membro é selecionado para garantir o nível de excelência do grupo.
           </p>
-          <Button size="lg" className="text-base px-10 py-6 rounded-full font-semibold animate-pulse-glow">
+          <Button size="lg" className="btn-metallic-3d text-base px-10 py-6 rounded-full border-0 animate-pulse-glow hover:bg-transparent">
             Solicitar meu convite <ChevronRight className="w-5 h-5 ml-1" />
           </Button>
         </div>
