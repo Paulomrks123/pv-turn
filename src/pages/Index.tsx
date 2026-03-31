@@ -91,7 +91,7 @@ function WhatIs() {
       <div className="max-w-5xl mx-auto">
         <Section>
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-            O que é o <span className="text-gradient-gold">TurnX Clube</span>?
+            O que é o Turn<span className="text-gradient-gold">X</span> Clube?
           </h2>
           <p className="text-muted-foreground text-center max-w-xl mx-auto mb-14">
             Uma comunidade curada de empresários que acreditam que crescimento real vem de conexões genuínas e experiências transformadoras.
