@@ -195,7 +195,7 @@ function Plans() {
                   </li>
                 ))}
               </ul>
-              <Button className="mt-8 w-full rounded-full glow-amber hover:glow-amber-strong transition-shadow">Quero ser membro</Button>
+              <Button className="mt-8 w-full rounded-full btn-metallic-3d border-0 hover:bg-transparent">Quero ser membro</Button>
             </div>
           </Section>
         </div>
