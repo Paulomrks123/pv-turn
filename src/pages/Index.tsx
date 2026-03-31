@@ -61,7 +61,7 @@ function Hero() {
         </Section>
 
         <Section delay={450}>
-          <Button size="lg" className="text-base px-8 py-6 rounded-full font-semibold glow-amber hover:glow-amber-strong transition-shadow duration-300">
+          <Button size="lg" className="btn-metallic-3d text-base px-8 py-6 rounded-full border-0 hover:bg-transparent">
             Quero meu convite <ChevronRight className="w-5 h-5 ml-1" />
           </Button>
         </Section>
