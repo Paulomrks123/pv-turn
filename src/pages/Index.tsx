@@ -281,7 +281,7 @@ function HowItWorks() {
               <div className="text-center">
                 <div className="text-5xl font-bold text-gradient-gold mb-4">{s.num}</div>
                 <h3 className="font-bold text-lg mb-2">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{highlightX(s.desc)}</p>
               </div>
             </Section>
           ))}
