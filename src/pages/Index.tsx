@@ -9,6 +9,16 @@ import podcastImg from "@/assets/podcast.jpg";
 import companyVisitImg from "@/assets/company-visit.jpg";
 import trainingImg from "@/assets/training-center.jpg";
 
+// Helper to highlight X in TurnX words
+function highlightX(text: string) {
+  const parts = text.split(/(TurnX|TURNX)/g);
+  return parts.map((part, i) => {
+    if (part === "TurnX") return <span key={i}>Turn<span className="text-gradient-gold">X</span></span>;
+    if (part === "TURNX") return <span key={i}>TURN<span className="text-gradient-gold">X</span></span>;
+    return part;
+  });
+}
+
 // Intersection Observer hook for scroll animations
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -91,7 +101,7 @@ function WhatIs() {
       <div className="max-w-5xl mx-auto">
         <Section>
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-            O que é o <span className="text-gradient-gold">TurnX Clube</span>?
+            O que é o Turn<span className="text-gradient-gold">X</span> Clube?
           </h2>
           <p className="text-muted-foreground text-center max-w-xl mx-auto mb-14">
             Uma comunidade curada de empresários que acreditam que crescimento real vem de conexões genuínas e experiências transformadoras.
@@ -184,7 +194,7 @@ function Plans() {
           <Section delay={150}>
             <div className="relative glass rounded-2xl p-6 sm:p-8 h-full flex flex-col border-primary/30 glow-amber">
               <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 text-xs uppercase tracking-wider">Recomendado</Badge>
-              <h3 className="text-xl font-bold mb-1">Turn-Around</h3>
+              <h3 className="text-xl font-bold mb-1">Turn<span className="text-gradient-gold">X</span>-Around</h3>
               <p className="text-muted-foreground text-sm mb-6">Acesso completo ao clube</p>
               <div className="text-3xl font-bold mb-6">R$ 229<span className="text-lg">,90</span><span className="text-sm font-normal text-muted-foreground">/mês</span></div>
               <ul className="space-y-3 flex-1">
@@ -251,7 +261,7 @@ function Experiences() {
 // ─── Como funciona ───────────────────────────────────────────
 const steps = [
   { num: "01", title: "Receba o convite", desc: "Acesso exclusivo por indicação de um membro ou solicitação aprovada." },
-  { num: "02", title: "Escolha seu plano", desc: "Comece grátis ou desbloqueie o acesso completo com o Turn-Around." },
+  { num: "02", title: "Escolha seu plano", desc: "Comece grátis ou desbloqueie o acesso completo com o TurnX-Around." },
   { num: "03", title: "Conecte-se", desc: "Participe de eventos, faça networking e gere negócios reais." },
 ];
 
@@ -271,7 +281,7 @@ function HowItWorks() {
               <div className="text-center">
                 <div className="text-5xl font-bold text-gradient-gold mb-4">{s.num}</div>
                 <h3 className="font-bold text-lg mb-2">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{highlightX(s.desc)}</p>
               </div>
             </Section>
           ))}
@@ -291,7 +301,7 @@ function FinalCTA() {
             Vagas <span className="text-gradient-gold">limitadas</span>
           </h2>
           <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-            O TurnX Clube é uma comunidade curada. Cada novo membro é selecionado para garantir o nível de excelência do grupo.
+            O Turn<span className="text-gradient-gold">X</span> Clube é uma comunidade curada. Cada novo membro é selecionado para garantir o nível de excelência do grupo.
           </p>
           <Button size="lg" className="btn-metallic-3d text-base px-10 py-6 rounded-full border-0 animate-pulse-glow hover:bg-transparent">
             Solicitar meu convite <ChevronRight className="w-5 h-5 ml-1" />
@@ -306,8 +316,8 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="py-10 px-4 border-t border-border/30 text-center">
-      <p className="text-gradient-gold font-bold text-xl tracking-tight mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>TURNX CLUBE</p>
-      <p className="text-muted-foreground text-xs">© {new Date().getFullYear()} TurnX Clube. Todos os direitos reservados.</p>
+      <p className="font-bold text-xl tracking-tight mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>TURN<span className="text-gradient-gold">X</span> CLUBE</p>
+      <p className="text-muted-foreground text-xs">© {new Date().getFullYear()} Turn<span className="text-gradient-gold">X</span> Clube. Todos os direitos reservados.</p>
     </footer>
   );
 }
