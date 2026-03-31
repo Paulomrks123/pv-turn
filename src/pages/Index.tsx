@@ -251,7 +251,7 @@ function Experiences() {
 // ─── Como funciona ───────────────────────────────────────────
 const steps = [
   { num: "01", title: "Receba o convite", desc: "Acesso exclusivo por indicação de um membro ou solicitação aprovada." },
-  { num: "02", title: "Escolha seu plano", desc: "Comece grátis ou desbloqueie o acesso completo com o Turn<span className="text-gradient-gold">X</span>-Around." },
+  { num: "02", title: "Escolha seu plano", desc: "Comece grátis ou desbloqueie o acesso completo com o TurnX-Around." },
   { num: "03", title: "Conecte-se", desc: "Participe de eventos, faça networking e gere negócios reais." },
 ];
 
