@@ -306,8 +306,8 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="py-10 px-4 border-t border-border/30 text-center">
-      <p className="text-gradient-gold font-bold text-xl tracking-tight mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>TURNX CLUBE</p>
-      <p className="text-muted-foreground text-xs">© {new Date().getFullYear()} TurnX Clube. Todos os direitos reservados.</p>
+      <p className="font-bold text-xl tracking-tight mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>TURN<span className="text-gradient-gold">X</span> CLUBE</p>
+      <p className="text-muted-foreground text-xs">© {new Date().getFullYear()} Turn<span className="text-gradient-gold">X</span> Clube. Todos os direitos reservados.</p>
     </footer>
   );
 }
