@@ -176,7 +176,7 @@ function Plans() {
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" className="mt-8 w-full rounded-full">Solicitar Convite</Button>
+              <Button variant="outline" className="mt-8 w-full rounded-full border-primary/40 text-primary hover:bg-primary/10">Solicitar Convite</Button>
             </div>
           </Section>
 
