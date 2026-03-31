@@ -61,7 +61,7 @@ function Hero() {
         </Section>
 
         <Section delay={450}>
-          <Button size="lg" className="text-base px-8 py-6 rounded-full font-semibold glow-amber hover:glow-amber-strong transition-shadow duration-300">
+          <Button size="lg" className="btn-metallic-3d text-base px-8 py-6 rounded-full border-0 hover:bg-transparent">
             Quero meu convite <ChevronRight className="w-5 h-5 ml-1" />
           </Button>
         </Section>
@@ -176,7 +176,7 @@ function Plans() {
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" className="mt-8 w-full rounded-full">Solicitar Convite</Button>
+              <Button variant="outline" className="mt-8 w-full rounded-full border-primary/40 text-primary hover:bg-primary/10">Solicitar Convite</Button>
             </div>
           </Section>
 
@@ -195,7 +195,7 @@ function Plans() {
                   </li>
                 ))}
               </ul>
-              <Button className="mt-8 w-full rounded-full glow-amber hover:glow-amber-strong transition-shadow">Quero ser membro</Button>
+              <Button className="mt-8 w-full rounded-full btn-metallic-3d border-0 hover:bg-transparent">Quero ser membro</Button>
             </div>
           </Section>
         </div>
@@ -293,7 +293,7 @@ function FinalCTA() {
           <p className="text-muted-foreground mb-8 max-w-md mx-auto">
             O TurnX Clube é uma comunidade curada. Cada novo membro é selecionado para garantir o nível de excelência do grupo.
           </p>
-          <Button size="lg" className="text-base px-10 py-6 rounded-full font-semibold animate-pulse-glow">
+          <Button size="lg" className="btn-metallic-3d text-base px-10 py-6 rounded-full border-0 animate-pulse-glow hover:bg-transparent">
             Solicitar meu convite <ChevronRight className="w-5 h-5 ml-1" />
           </Button>
         </div>
