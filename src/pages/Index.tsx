@@ -184,7 +184,7 @@ function Plans() {
           <Section delay={150}>
             <div className="relative glass rounded-2xl p-6 sm:p-8 h-full flex flex-col border-primary/30 glow-amber">
               <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 text-xs uppercase tracking-wider">Recomendado</Badge>
-              <h3 className="text-xl font-bold mb-1">Turn-Around</h3>
+              <h3 className="text-xl font-bold mb-1">Turn<span className="text-gradient-gold">X</span>-Around</h3>
               <p className="text-muted-foreground text-sm mb-6">Acesso completo ao clube</p>
               <div className="text-3xl font-bold mb-6">R$ 229<span className="text-lg">,90</span><span className="text-sm font-normal text-muted-foreground">/mês</span></div>
               <ul className="space-y-3 flex-1">
