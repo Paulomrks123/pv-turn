@@ -1,58 +1,51 @@
 
 
-# Landing Page Persuasiva — TurnX Clube
+# Gerar HTML Estático para Hostinger
 
-## Visão Geral
+## O que será feito
 
-Landing page dark premium com efeitos visuais modernos, destacando os dois planos (Gratuito vs Turn-Around R$229,90) e criando urgência com o modelo "somente convidados".
+Converter a landing page React do TurnX Clube em um **arquivo HTML único e autossuficiente** que pode ser enviado diretamente para a Hostinger, sem necessidade de Node.js, React ou build.
 
-## Estrutura da Página
+## Abordagem
 
-### 1. Hero Section
-- Título impactante: "Sua rede define seu futuro"
-- Subtítulo sobre comunidade exclusiva de empresários
-- Badge "Somente Convidados" com efeito glow
-- CTA principal: "Quero meu convite"
-- Background com gradient animado (dark com toques dourados/âmbar)
+Criar um arquivo `turnx-landing.html` em `/mnt/documents/` contendo:
 
-### 2. Seção "O que é o TurnX Clube"
-- Breve descrição da comunidade
-- 3-4 ícones com benefícios-chave (Networking, Eventos, Marketplace, Conteúdo)
-- Animações de entrada (fade-in ao scroll)
+1. **CSS inline completo** — todas as variáveis de cor, estilos dos botões 3D metálicos, glassmorphism, animações (shimmer, float, pulse-glow, gradient-shift, fade-in on scroll)
+2. **HTML semântico** reproduzindo todas as seções: Hero, O que é, Experiências, Planos, Como Funciona, CTA Final, Footer
+3. **JavaScript vanilla** para:
+   - Intersection Observer (animações de fade-in ao scroll)
+   - Indicador de scroll no hero
+4. **Google Fonts** via link externo (Space Grotesk + Inter)
+5. **Ícones SVG inline** substituindo os ícones do Lucide (Star, Check, Lock, ChevronRight, Users, Calendar, ShoppingBag, etc.)
+6. **Imagens**: como as imagens são assets locais do projeto, serão substituídas por **placeholders com gradients** que simulam as fotos, ou o usuário poderá trocar os `src` pelos URLs reais das imagens na Hostinger
 
-### 3. Comparativo de Planos
-- Duas colunas lado a lado (responsivo)
-- **Gratuito**: lista de benefícios com indicadores visuais de limitação (cadeado nos itens restritos)
-- **Turn-Around R$229,90/mês**: lista completa com check marks, badge "Recomendado", efeito de destaque/glow
-- CTA em cada plano
+## Estrutura do arquivo
 
-### 4. Seção de Experiências
-- Cards visuais com: Jantares, Expedições, Podcasts, Visitas a empresas, Centro de Treinamento MOA
-- Imagens placeholder com overlay gradient
-- Efeito hover com zoom sutil
+```text
+turnx-landing.html
+├── <head>
+│   ├── Meta tags (charset, viewport, SEO)
+│   ├── Google Fonts link
+│   └── <style> (todo o CSS inline)
+├── <body>
+│   ├── Hero Section
+│   ├── O que é o TurnX Clube
+│   ├── Experiências (5 cards)
+│   ├── Planos (Gratuito vs TurnX-Around)
+│   ├── Como Funciona (3 passos)
+│   ├── CTA Final
+│   ├── Footer
+│   └── <script> (Intersection Observer + animações)
+```
 
-### 5. Como Funciona
-- 3 passos: Receba o convite → Escolha seu plano → Conecte-se
-- Layout horizontal com ícones numerados
+## Detalhes técnicos
 
-### 6. CTA Final
-- Frase de urgência: "Vagas limitadas para convidados"
-- Botão grande com efeito pulse
+- **Responsivo**: media queries para mobile/tablet/desktop
+- **X dourado**: todas as menções de "TurnX" terão o X com gradiente dourado via `<span class="text-gradient-gold">`
+- **Botões**: classe `.btn-metallic-3d` com gradiente dourado, sombra 3D e efeito shimmer
+- **Sem dependências**: arquivo 100% standalone, basta fazer upload na Hostinger
 
-## Estilo Visual
-- Paleta: fundo escuro (#0a0a0a), dourado/âmbar para destaques, branco para texto
-- Tipografia grande e bold nos títulos
-- Glassmorphism nos cards
-- Animações CSS: fade-in on scroll, hover effects, gradient animations
-- Sem dependências externas de animação (CSS puro + Tailwind)
+## Entrega
 
-## Arquivos a Criar/Editar
-1. **src/pages/Index.tsx** — componente principal da landing page
-2. **src/index.css** — variáveis de cor atualizadas para tema dark premium
-
-## Notas Técnicas
-- Responsivo mobile-first (viewport atual é 286px)
-- Intersection Observer para animações on-scroll
-- Imagens via gradients e SVG inline (sem assets externos)
-- Seção de planos com destaque visual claro no plano pago
+Arquivo gerado em `/mnt/documents/turnx-landing.html` pronto para download e upload na Hostinger.
 
