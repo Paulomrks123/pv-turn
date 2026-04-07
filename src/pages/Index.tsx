@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, createContext, useContext } from "react";
 import { Check, Lock, Users, Calendar, ShoppingBag, Newspaper, ChevronRight, Star, Mountain, Mic, Building2, Dumbbell, UtensilsCrossed } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { translations, type LangCode } from "@/lib/translations";
 
 import dinnerImg from "@/assets/dinner-event.jpg";
 import expeditionImg from "@/assets/expedition.jpg";
@@ -9,17 +11,11 @@ import podcastImg from "@/assets/podcast.jpg";
 import companyVisitImg from "@/assets/company-visit.jpg";
 import trainingImg from "@/assets/training-center.jpg";
 
-// Helper to highlight X in TurnX words
-function highlightX(text: string) {
-  const parts = text.split(/(TurnX|TURNX)/g);
-  return parts.map((part, i) => {
-    if (part === "TurnX") return <span key={i}>Turn<span className="text-gradient-gold">X</span></span>;
-    if (part === "TURNX") return <span key={i}>TURN<span className="text-gradient-gold">X</span></span>;
-    return part;
-  });
-}
+// Translation context
+const LangContext = createContext<Record<string, string>>(translations.pt);
+function useT() { return useContext(LangContext); }
 
-// Intersection Observer hook for scroll animations
+// Intersection Observer hook
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -42,42 +38,43 @@ function Section({ children, className = "", delay = 0 }: { children: React.Reac
   );
 }
 
+const X = () => <span className="text-gradient-gold">X</span>;
+
 // ─── Hero ────────────────────────────────────────────────────
 function Hero() {
+  const t = useT();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
-      {/* animated bg */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary animate-gradient" />
       <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, hsl(38 92% 50% / 0.15) 0%, transparent 50%), radial-gradient(circle at 70% 80%, hsl(38 80% 45% / 0.1) 0%, transparent 50%)" }} />
 
       <div className="relative z-10 text-center max-w-2xl mx-auto">
         <Section>
           <Badge className="mb-6 px-4 py-1.5 text-xs tracking-widest uppercase border-primary/40 bg-primary/10 text-primary animate-pulse-glow">
-            <Star className="w-3 h-3 mr-1.5" /> Somente Convidados
+            <Star className="w-3 h-3 mr-1.5" /> {t.badge_invite}
           </Badge>
         </Section>
 
         <Section delay={150}>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6">
-            Sua rede define{" "}
-            <span className="text-gradient-gold">seu futuro</span>
+            {t.hero_title_1}{" "}
+            <span className="text-gradient-gold">{t.hero_title_2}</span>
           </h1>
         </Section>
 
         <Section delay={300}>
           <p className="text-muted-foreground text-base sm:text-lg mb-8 max-w-lg mx-auto leading-relaxed">
-            O clube exclusivo que conecta empresários de alta performance através de experiências únicas, networking estratégico e oportunidades reais de negócio.
+            {t.hero_desc}
           </p>
         </Section>
 
         <Section delay={450}>
           <Button size="lg" className="btn-metallic-3d text-base px-8 py-6 rounded-full border-0 hover:bg-transparent">
-            Quero meu convite <ChevronRight className="w-5 h-5 ml-1" />
+            {t.hero_cta} <ChevronRight className="w-5 h-5 ml-1" />
           </Button>
         </Section>
       </div>
 
-      {/* scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
         <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center pt-2">
           <div className="w-1.5 h-1.5 rounded-full bg-primary animate-bounce" />
@@ -88,23 +85,24 @@ function Hero() {
 }
 
 // ─── O que é ─────────────────────────────────────────────────
-const pillars = [
-  { icon: Users, title: "Networking", desc: "Conexões estratégicas com empresários de alto nível" },
-  { icon: Calendar, title: "Eventos", desc: "Jantares, expedições e encontros exclusivos" },
-  { icon: ShoppingBag, title: "Marketplace", desc: "Oportunidades de negócio entre membros" },
-  { icon: Newspaper, title: "Conteúdo", desc: "Feed exclusivo e participação no podcast" },
-];
-
 function WhatIs() {
+  const t = useT();
+  const pillars = [
+    { icon: Users, title: t.pillar_networking, desc: t.pillar_networking_desc },
+    { icon: Calendar, title: t.pillar_events, desc: t.pillar_events_desc },
+    { icon: ShoppingBag, title: t.pillar_marketplace, desc: t.pillar_marketplace_desc },
+    { icon: Newspaper, title: t.pillar_content, desc: t.pillar_content_desc },
+  ];
+
   return (
     <section className="py-20 sm:py-28 px-4">
       <div className="max-w-5xl mx-auto">
         <Section>
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-            O que é o Turn<span className="text-gradient-gold">X</span> Clube?
+            {t.what_title}<X />{t.what_title_end}
           </h2>
           <p className="text-muted-foreground text-center max-w-xl mx-auto mb-14">
-            Uma comunidade curada de empresários que acreditam que crescimento real vem de conexões genuínas e experiências transformadoras.
+            {t.what_desc}
           </p>
         </Section>
 
@@ -127,53 +125,40 @@ function WhatIs() {
 }
 
 // ─── Planos ──────────────────────────────────────────────────
-const freeFeatures = [
-  { text: "Acesso ao feed de conteúdo", included: true },
-  { text: "2 eventos online por mês", included: true },
-  { text: "Visualizar eventos exclusivos", included: true },
-  { text: "Visualizar marketplace", included: true },
-  { text: "Ofertar no marketplace (com curadoria)", included: true },
-  { text: "Participar de eventos presenciais", included: false },
-  { text: "Contato direto com membros", included: false },
-  { text: "Receber contatos de interessados", included: false },
-  { text: "Grupo exclusivo WhatsApp", included: false },
-];
-
-const proFeatures = [
-  "Acesso ao feed de conteúdo",
-  "Eventos online ilimitados",
-  "Eventos presenciais exclusivos",
-  "Marketplace completo com contato direto",
-  "Grupo exclusivo de WhatsApp",
-  "Convidado para criar conteúdo",
-  "Networking fechado e recorrente",
-  "Jantares e palestras exclusivas",
-  "Expedições de aventura",
-  "Acesso ao Centro de Treinamento MOA",
-  "Visitas a empresas",
-  "Convite para o Podcast",
-];
-
 function Plans() {
+  const t = useT();
+  const freeFeatures = [
+    { text: t.free_1, included: true },
+    { text: t.free_2, included: true },
+    { text: t.free_3, included: true },
+    { text: t.free_4, included: true },
+    { text: t.free_5, included: true },
+    { text: t.free_6, included: false },
+    { text: t.free_7, included: false },
+    { text: t.free_8, included: false },
+    { text: t.free_9, included: false },
+  ];
+
+  const proFeatures = [t.pro_1, t.pro_2, t.pro_3, t.pro_4, t.pro_5, t.pro_6, t.pro_7, t.pro_8, t.pro_9, t.pro_10, t.pro_11, t.pro_12];
+
   return (
     <section className="py-20 sm:py-28 px-4">
       <div className="max-w-5xl mx-auto">
         <Section>
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-            Escolha seu <span className="text-gradient-gold">nível de acesso</span>
+            {t.plans_title_1} <span className="text-gradient-gold">{t.plans_title_2}</span>
           </h2>
           <p className="text-muted-foreground text-center max-w-lg mx-auto mb-14">
-            Comece gratuitamente ou desbloqueie todo o potencial do clube.
+            {t.plans_desc}
           </p>
         </Section>
 
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-          {/* Free */}
           <Section>
             <div className="glass rounded-2xl p-6 sm:p-8 h-full flex flex-col">
-              <h3 className="text-xl font-bold mb-1">Gratuito</h3>
-              <p className="text-muted-foreground text-sm mb-6">Somente convidados</p>
-              <div className="text-3xl font-bold mb-6">R$ 0<span className="text-sm font-normal text-muted-foreground">/mês</span></div>
+              <h3 className="text-xl font-bold mb-1">{t.plan_free}</h3>
+              <p className="text-muted-foreground text-sm mb-6">{t.plan_free_sub}</p>
+              <div className="text-3xl font-bold mb-6">R$ 0<span className="text-sm font-normal text-muted-foreground">{t.month}</span></div>
               <ul className="space-y-3 flex-1">
                 {freeFeatures.map((f) => (
                   <li key={f.text} className="flex items-start gap-2.5 text-sm">
@@ -186,17 +171,16 @@ function Plans() {
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" className="mt-8 w-full rounded-full border-primary/40 text-primary hover:bg-primary/10">Solicitar Convite</Button>
+              <Button variant="outline" className="mt-8 w-full rounded-full border-primary/40 text-primary hover:bg-primary/10">{t.plan_free_cta}</Button>
             </div>
           </Section>
 
-          {/* Pro */}
           <Section delay={150}>
             <div className="relative glass rounded-2xl p-6 sm:p-8 h-full flex flex-col border-primary/30 glow-amber">
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 text-xs uppercase tracking-wider">Recomendado</Badge>
-              <h3 className="text-xl font-bold mb-1">Turn<span className="text-gradient-gold">X</span>-Around</h3>
-              <p className="text-muted-foreground text-sm mb-6">Acesso completo ao clube</p>
-              <div className="text-3xl font-bold mb-6">R$ 229<span className="text-lg">,90</span><span className="text-sm font-normal text-muted-foreground">/mês</span></div>
+              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 text-xs uppercase tracking-wider">{t.plan_recommended}</Badge>
+              <h3 className="text-xl font-bold mb-1">Turn<X />{t.plan_pro}</h3>
+              <p className="text-muted-foreground text-sm mb-6">{t.plan_pro_sub}</p>
+              <div className="text-3xl font-bold mb-6">R$ 229<span className="text-lg">,90</span><span className="text-sm font-normal text-muted-foreground">{t.month}</span></div>
               <ul className="space-y-3 flex-1">
                 {proFeatures.map((f) => (
                   <li key={f} className="flex items-start gap-2.5 text-sm">
@@ -205,7 +189,7 @@ function Plans() {
                   </li>
                 ))}
               </ul>
-              <Button className="mt-8 w-full rounded-full btn-metallic-3d border-0 hover:bg-transparent">Quero ser membro</Button>
+              <Button className="mt-8 w-full rounded-full btn-metallic-3d border-0 hover:bg-transparent">{t.plan_pro_cta}</Button>
             </div>
           </Section>
         </div>
@@ -215,24 +199,25 @@ function Plans() {
 }
 
 // ─── Experiências ────────────────────────────────────────────
-const experiences = [
-  { img: dinnerImg, title: "Jantares Exclusivos", desc: "Conexões em ambientes sofisticados", icon: UtensilsCrossed },
-  { img: expeditionImg, title: "Expedições", desc: "Aventuras que transformam perspectivas", icon: Mountain },
-  { img: podcastImg, title: "Podcast", desc: "Sua história inspirando outros empresários", icon: Mic },
-  { img: companyVisitImg, title: "Visitas a Empresas", desc: "Aprenda nos bastidores de grandes negócios", icon: Building2 },
-  { img: trainingImg, title: "Centro de Treinamento MOA", desc: "Supere limites com aventura e desafio", icon: Dumbbell },
-];
-
 function Experiences() {
+  const t = useT();
+  const experiences = [
+    { img: dinnerImg, title: t.exp_dinner, desc: t.exp_dinner_desc, icon: UtensilsCrossed },
+    { img: expeditionImg, title: t.exp_expedition, desc: t.exp_expedition_desc, icon: Mountain },
+    { img: podcastImg, title: t.exp_podcast, desc: t.exp_podcast_desc, icon: Mic },
+    { img: companyVisitImg, title: t.exp_company, desc: t.exp_company_desc, icon: Building2 },
+    { img: trainingImg, title: t.exp_training, desc: t.exp_training_desc, icon: Dumbbell },
+  ];
+
   return (
     <section className="py-20 sm:py-28 px-4">
       <div className="max-w-5xl mx-auto">
         <Section>
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-            Experiências que <span className="text-gradient-gold">transformam</span>
+            {t.exp_title_1} <span className="text-gradient-gold">{t.exp_title_2}</span>
           </h2>
           <p className="text-muted-foreground text-center max-w-lg mx-auto mb-14">
-            Mais do que networking — vivências que criam vínculos reais e abrem portas.
+            {t.exp_desc}
           </p>
         </Section>
 
@@ -259,19 +244,20 @@ function Experiences() {
 }
 
 // ─── Como funciona ───────────────────────────────────────────
-const steps = [
-  { num: "01", title: "Receba o convite", desc: "Acesso exclusivo por indicação de um membro ou solicitação aprovada." },
-  { num: "02", title: "Escolha seu plano", desc: "Comece grátis ou desbloqueie o acesso completo com o TurnX-Around." },
-  { num: "03", title: "Conecte-se", desc: "Participe de eventos, faça networking e gere negócios reais." },
-];
-
 function HowItWorks() {
+  const t = useT();
+  const steps = [
+    { num: "01", title: t.step_1_title, desc: t.step_1_desc },
+    { num: "02", title: t.step_2_title, desc: t.step_2_desc },
+    { num: "03", title: t.step_3_title, desc: t.step_3_desc },
+  ];
+
   return (
     <section className="py-20 sm:py-28 px-4">
       <div className="max-w-4xl mx-auto">
         <Section>
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-14">
-            Como <span className="text-gradient-gold">funciona</span>
+            {t.how_title_1} <span className="text-gradient-gold">{t.how_title_2}</span>
           </h2>
         </Section>
 
@@ -281,7 +267,7 @@ function HowItWorks() {
               <div className="text-center">
                 <div className="text-5xl font-bold text-gradient-gold mb-4">{s.num}</div>
                 <h3 className="font-bold text-lg mb-2">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{highlightX(s.desc)}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
               </div>
             </Section>
           ))}
@@ -293,18 +279,19 @@ function HowItWorks() {
 
 // ─── CTA Final ───────────────────────────────────────────────
 function FinalCTA() {
+  const t = useT();
   return (
     <section className="py-20 sm:py-28 px-4">
       <Section>
         <div className="max-w-2xl mx-auto text-center glass rounded-3xl p-8 sm:p-14 glow-amber-strong">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Vagas <span className="text-gradient-gold">limitadas</span>
+            {t.cta_title_1} <span className="text-gradient-gold">{t.cta_title_2}</span>
           </h2>
           <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-            O Turn<span className="text-gradient-gold">X</span> Clube é uma comunidade curada. Cada novo membro é selecionado para garantir o nível de excelência do grupo.
+            {t.cta_desc_1}<X />{t.cta_desc_2}
           </p>
           <Button size="lg" className="btn-metallic-3d text-base px-10 py-6 rounded-full border-0 animate-pulse-glow hover:bg-transparent">
-            Solicitar meu convite <ChevronRight className="w-5 h-5 ml-1" />
+            {t.cta_button} <ChevronRight className="w-5 h-5 ml-1" />
           </Button>
         </div>
       </Section>
@@ -314,25 +301,32 @@ function FinalCTA() {
 
 // ─── Footer ──────────────────────────────────────────────────
 function Footer() {
+  const t = useT();
   return (
     <footer className="py-10 px-4 border-t border-border/30 text-center">
-      <p className="font-bold text-xl tracking-tight mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>TURN<span className="text-gradient-gold">X</span> CLUBE</p>
-      <p className="text-muted-foreground text-xs">© {new Date().getFullYear()} Turn<span className="text-gradient-gold">X</span> Clube. Todos os direitos reservados.</p>
+      <p className="font-bold text-xl tracking-tight mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>TURN<X /> CLUBE</p>
+      <p className="text-muted-foreground text-xs">© {new Date().getFullYear()} Turn<X /> Clube. {t.footer_rights}</p>
     </footer>
   );
 }
 
 // ─── Page ────────────────────────────────────────────────────
 export default function Index() {
+  const [lang, setLang] = useState<LangCode>("pt");
+  const t = translations[lang];
+
   return (
-    <main className="bg-background text-foreground overflow-x-hidden">
-      <Hero />
-      <WhatIs />
-      <Experiences />
-      <Plans />
-      <HowItWorks />
-      <FinalCTA />
-      <Footer />
-    </main>
+    <LangContext.Provider value={t}>
+      <main className="bg-background text-foreground overflow-x-hidden">
+        <LanguageSwitcher current={lang} onChange={setLang} />
+        <Hero />
+        <WhatIs />
+        <Experiences />
+        <Plans />
+        <HowItWorks />
+        <FinalCTA />
+        <Footer />
+      </main>
+    </LangContext.Provider>
   );
 }
