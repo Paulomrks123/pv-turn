@@ -39,7 +39,7 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 
 function CTA({ primary, secondary }: { primary: string; secondary?: string }) {
   return (
-    <div className="flex flex-col sm:flex-row gap-3 justify-center my-10">
+    <div className="flex flex-col sm:flex-row gap-3 justify-center my-6">
       <Button size="lg" className="btn-metallic-3d text-base px-10 py-6 rounded-full border-0 hover:bg-transparent animate-pulse-glow">
         {primary} <ChevronRight className="w-5 h-5 ml-1" />
       </Button>
