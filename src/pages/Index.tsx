@@ -39,7 +39,7 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 
 function CTA({ primary, secondary }: { primary: string; secondary?: string }) {
   return (
-    <div className="flex flex-col sm:flex-row gap-3 justify-center my-10">
+    <div className="flex flex-col sm:flex-row gap-3 justify-center my-6">
       <Button size="lg" className="btn-metallic-3d text-base px-10 py-6 rounded-full border-0 hover:bg-transparent animate-pulse-glow">
         {primary} <ChevronRight className="w-5 h-5 ml-1" />
       </Button>
@@ -53,7 +53,7 @@ function CTA({ primary, secondary }: { primary: string; secondary?: string }) {
 }
 
 function Divider() {
-  return <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent mx-auto my-16 sm:my-20" />;
+  return <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent mx-auto my-8 sm:my-10" />;
 }
 
 function GoldHighlight({ children }: { children: React.ReactNode }) {
@@ -96,33 +96,33 @@ export default function Index() {
         
 
         {/* ━━━━━━━━━━━━ HERO — ABOVE THE FOLD ━━━━━━━━━━━━ */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
+        <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden px-4 py-14">
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary animate-gradient" />
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, hsl(38 92% 50% / 0.15) 0%, transparent 50%), radial-gradient(circle at 70% 80%, hsl(38 80% 45% / 0.1) 0%, transparent 50%)" }} />
 
           <div className="relative z-10 text-center max-w-3xl mx-auto">
             <Reveal>
-              <div className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary/80 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-8">
+              <div className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary/80 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-5">
                 ⚡ {t.lp_hero_badge}
               </div>
             </Reveal>
 
             <Reveal delay={100}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 leading-[1.05]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 leading-[1.05]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                 {t.lp_hero_h1_1}<br />
                 <GoldHighlight>{t.lp_hero_h1_2}</GoldHighlight>
               </h1>
             </Reveal>
 
             <Reveal delay={200}>
-              <p className="text-lg sm:text-xl md:text-2xl text-foreground/85 mb-4 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-foreground/85 mb-4 leading-relaxed max-w-2xl mx-auto">
                 {t.lp_hero_sub}
               </p>
             </Reveal>
 
             {/* VSL - Video Sales Letter */}
             <Reveal delay={300}>
-              <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)] mb-6 max-w-2xl mx-auto">
+              <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)] mb-4 max-w-2xl mx-auto">
                 <iframe
                   className="w-full h-full"
                   src="https://www.youtube.com/embed/hQ9nQ-WMuQs?si=UdaqS1cUxVmA_hXU"
@@ -139,15 +139,11 @@ export default function Index() {
             </Reveal>
           </div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-            <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center pt-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-primary animate-bounce" />
-            </div>
-          </div>
+
         </section>
 
         {/* ━━━━━━━━━━━━ QUEBRA DE CRENÇA ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-6">
@@ -180,7 +176,7 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ O QUE É A SECC — POSICIONAMENTO ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6">
@@ -202,7 +198,7 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ MECANISMO — 3 BLOCOS ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-3xl mx-auto">
             <Reveal>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 leading-tight">
@@ -243,7 +239,7 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ PARA QUEM É ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 leading-tight">
@@ -274,7 +270,7 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ O QUE VOCÊ GANHA ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 leading-tight">
@@ -294,7 +290,7 @@ export default function Index() {
         </section>
 
         {/* ━━━━━━━━━━━━ SECC CONNECT — DIFERENCIAL ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24 relative" style={{ background: "linear-gradient(180deg, hsl(220 30% 8%) 0%, hsl(220 35% 12%) 50%, hsl(220 30% 8%) 100%)" }}>
+        <section className="px-4 py-10 sm:py-14 relative" style={{ background: "linear-gradient(180deg, hsl(220 30% 8%) 0%, hsl(220 35% 12%) 50%, hsl(220 30% 8%) 100%)" }}>
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <div className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary/80 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-6">
@@ -331,7 +327,7 @@ export default function Index() {
         </section>
 
         {/* ━━━━━━━━━━━━ SEU PROFESSOR ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24 relative" style={{ background: "linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 35% 10%) 50%, hsl(220 30% 6%) 100%)" }}>
+        <section className="px-4 py-10 sm:py-14 relative" style={{ background: "linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 35% 10%) 50%, hsl(220 30% 6%) 100%)" }}>
           <div className="max-w-3xl mx-auto">
             <Reveal>
               <div className="text-center mb-8">
@@ -381,7 +377,7 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ PROVA SOCIAL ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 leading-tight">
@@ -410,7 +406,7 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ PLANOS — FUNDO AZUL ━━━━━━━━━━━━ */}
-        <section id="planos" className="py-20 sm:py-28 px-4 relative" style={{ background: "linear-gradient(135deg, hsl(220 60% 10%), hsl(220 50% 16%), hsl(220 60% 10%))" }}>
+        <section id="planos" className="py-12 sm:py-16 px-4 relative" style={{ background: "linear-gradient(135deg, hsl(220 60% 10%), hsl(220 50% 16%), hsl(220 60% 10%))" }}>
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/8 rounded-full blur-[120px]" />
           </div>
@@ -473,7 +469,7 @@ export default function Index() {
         </section>
 
         {/* ━━━━━━━━━━━━ URGÊNCIA / ESCASSEZ ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto text-center">
             <Reveal>
               <Lock className="w-10 h-10 text-primary mx-auto mb-6" />
@@ -498,7 +494,7 @@ export default function Index() {
         <FAQSection />
 
         {/* ━━━━━━━━━━━━ CTA FINAL — GRANDE ━━━━━━━━━━━━ */}
-        <section className="px-4 py-20 sm:py-28">
+        <section className="px-4 py-12 sm:py-16">
           <Reveal>
             <div className="max-w-2xl mx-auto text-center glass rounded-3xl p-8 sm:p-14 glow-amber-strong">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 leading-tight">
@@ -536,7 +532,7 @@ function FAQSection() {
   ];
 
   return (
-    <section className="px-4 py-16 sm:py-24">
+    <section className="px-4 py-10 sm:py-14">
       <div className="max-w-2xl mx-auto">
         <Reveal>
           <h2 className="text-2xl sm:text-3xl font-bold mb-8">{t.lp_faq_title}</h2>
