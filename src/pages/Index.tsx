@@ -110,6 +110,10 @@ export default function Index() {
       <main className="bg-background text-foreground overflow-x-hidden">
         <TopBar />
         
+        {/* Theme toggle visible at top */}
+        <div className="fixed top-4 right-4 z-40">
+          <ThemeToggle />
+        </div>
 
         {/* ━━━━━━━━━━━━ HERO — ABOVE THE FOLD ━━━━━━━━━━━━ */}
         <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden px-4 py-14">
