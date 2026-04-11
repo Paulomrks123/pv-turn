@@ -53,7 +53,7 @@ function CTA({ primary, secondary }: { primary: string; secondary?: string }) {
 }
 
 function Divider() {
-  return <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent mx-auto my-16 sm:my-20" />;
+  return <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent mx-auto my-8 sm:my-10" />;
 }
 
 function GoldHighlight({ children }: { children: React.ReactNode }) {
