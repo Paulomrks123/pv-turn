@@ -572,47 +572,57 @@ function Plans() {
   const proFeatures = [t.plan_pro_f1, t.plan_pro_f2, t.plan_pro_f3, t.plan_pro_f4, t.plan_pro_f5, t.plan_pro_f6, t.plan_pro_f7, t.plan_pro_f8];
 
   return (
-    <section id="planos" className="py-20 sm:py-28 px-4">
-      <div className="max-w-4xl mx-auto">
+    <section id="planos" className="py-20 sm:py-28 px-4 relative" style={{ background: "linear-gradient(135deg, hsl(220 60% 12%), hsl(220 50% 18%), hsl(220 60% 12%))" }}>
+      {/* Decorative glow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="max-w-4xl mx-auto relative z-10">
         <Section>
           <div className="text-center mb-14">
             <Badge>{t.plan_badge}</Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">
               {t.plan_title} <span className="text-gradient-gold">{t.plan_title2}</span>
             </h2>
           </div>
         </Section>
 
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+          {/* Plano Gratuito */}
           <Section>
-            <div className="glass rounded-2xl p-6 sm:p-8 h-full flex flex-col">
-              <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground bg-secondary rounded-full px-3 py-1 w-fit mb-4">{t.plan_free_badge}</span>
-              <h3 className="text-2xl font-bold mb-1">{t.plan_free}</h3>
-              <div className="text-3xl font-bold mb-1">{t.plan_free_price}</div>
-              <p className="text-muted-foreground text-sm mb-6">{t.plan_free_sub}</p>
+            <div className="rounded-2xl p-6 sm:p-8 h-full flex flex-col border border-white/10 bg-white/5 backdrop-blur-sm">
+              <span className="text-xs font-semibold uppercase tracking-wider text-white/60 bg-white/10 rounded-full px-3 py-1 w-fit mb-4">{t.plan_free_badge}</span>
+              <h3 className="text-2xl font-bold text-white mb-1">{t.plan_free}</h3>
+              <div className="text-3xl font-bold text-white mb-1">{t.plan_free_price}</div>
+              <p className="text-white/50 text-sm mb-6">{t.plan_free_sub}</p>
               <ul className="space-y-3 mb-8 flex-1">
                 {freeFeatures.map(f => (
-                  <li key={f} className="flex items-center gap-2 text-sm">
+                  <li key={f} className="flex items-center gap-2 text-sm text-white/80">
                     <Check className="w-4 h-4 text-primary shrink-0" />
                     {f}
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" className="w-full rounded-full border-primary/40 text-primary hover:bg-primary/10 py-5">
+              <Button variant="outline" className="w-full rounded-full border-white/20 text-white hover:bg-white/10 py-5">
                 {t.plan_free_cta} <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             </div>
           </Section>
 
+          {/* Plano Pro */}
           <Section delay={150}>
-            <div className="relative glass rounded-2xl p-6 sm:p-8 h-full flex flex-col border-primary/30 glow-amber">
+            <div className="relative rounded-2xl p-6 sm:p-8 h-full flex flex-col border border-primary/40 bg-primary/5 backdrop-blur-sm shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)]">
+              <div className="absolute -top-3 right-6 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full">
+                Mais Popular
+              </div>
               <span className="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 border border-primary/20 rounded-full px-3 py-1 w-fit mb-4">{t.plan_pro_badge}</span>
-              <h3 className="text-2xl font-bold mb-1">{t.plan_pro}</h3>
-              <div className="text-3xl font-bold mb-1">{t.plan_pro_price}</div>
-              <p className="text-muted-foreground text-sm mb-6">{t.plan_pro_sub}</p>
+              <h3 className="text-2xl font-bold text-white mb-1">{t.plan_pro}</h3>
+              <div className="text-3xl font-bold text-white mb-1">{t.plan_pro_price}</div>
+              <p className="text-white/50 text-sm mb-6">{t.plan_pro_sub}</p>
               <ul className="space-y-3 mb-8 flex-1">
                 {proFeatures.map(f => (
-                  <li key={f} className="flex items-center gap-2 text-sm">
+                  <li key={f} className="flex items-center gap-2 text-sm text-white/80">
                     <Check className="w-4 h-4 text-primary shrink-0" />
                     {f}
                   </li>
