@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, createContext, useContext } from "react";
-import { ChevronRight, Check, ArrowRight, Lock, AlertTriangle, X as XIcon, Menu } from "lucide-react";
+import { ChevronRight, Check, ArrowRight, Lock, AlertTriangle, X as XIcon, Menu, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { translations, type LangCode } from "@/lib/translations";
 import seccLogo from "@/assets/secc-logo.png";
