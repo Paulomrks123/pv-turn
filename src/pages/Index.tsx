@@ -60,6 +60,19 @@ function GoldHighlight({ children }: { children: React.ReactNode }) {
   return <span className="text-gradient-gold font-bold">{children}</span>;
 }
 
+/* ─── Theme Toggle ───────────────────────────────────────────── */
+function ThemeToggle() {
+  const [dark, setDark] = useState(false);
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+  }, [dark]);
+  return (
+    <button onClick={() => setDark(!dark)} className="p-2 rounded-full hover:bg-muted transition-colors" aria-label="Alternar tema">
+      {dark ? <Sun className="w-5 h-5 text-primary" /> : <Moon className="w-5 h-5 text-muted-foreground" />}
+    </button>
+  );
+}
+
 /* ─── Sticky Top Bar ─────────────────────────────────────────── */
 function TopBar() {
   const t = useT();
@@ -76,9 +89,12 @@ function TopBar() {
       <div className="bg-background/90 backdrop-blur-xl border-b border-border/30 py-2.5 px-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <img src={seccLogo} alt="SECC" className="h-8 w-auto" width={128} height={32} />
-          <Button size="sm" className="btn-metallic-3d rounded-full border-0 hover:bg-transparent text-sm px-5">
-            {t.lp_cta_short} <ArrowRight className="w-4 h-4 ml-1" />
-          </Button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Button size="sm" className="btn-metallic-3d rounded-full border-0 hover:bg-transparent text-sm px-5">
+              {t.lp_cta_short} <ArrowRight className="w-4 h-4 ml-1" />
+            </Button>
+          </div>
         </div>
       </div>
     </div>
