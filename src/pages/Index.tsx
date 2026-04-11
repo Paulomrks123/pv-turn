@@ -160,17 +160,13 @@ export default function Index() {
               <p className="text-foreground text-lg sm:text-xl font-semibold mb-1">
                 {t.lp_break_bold1}
               </p>
-              <p className="text-2xl sm:text-3xl font-bold">
+              <p className="text-2xl sm:text-3xl font-bold mb-8">
                 <GoldHighlight>{t.lp_break_gold1}</GoldHighlight>
               </p>
             </Reveal>
-          </div>
-        </section>
 
-        {/* VSL - Video Sales Letter */}
-        <section className="px-4 py-12 sm:py-16">
-          <div className="max-w-3xl mx-auto">
-            <Reveal>
+            {/* VSL - Video Sales Letter */}
+            <Reveal delay={400}>
               <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)]">
                 <iframe
                   className="w-full h-full"
