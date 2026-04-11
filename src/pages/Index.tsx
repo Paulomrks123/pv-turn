@@ -1,21 +1,12 @@
 import { useEffect, useRef, useState, createContext, useContext } from "react";
-import { Check, Lock, Users, Calendar, ShoppingBag, Newspaper, ChevronRight, Star, Mountain, Mic, Building2, Dumbbell, UtensilsCrossed } from "lucide-react";
+import { ChevronRight, Shield, Crosshair, Lock, Briefcase, TrendingUp, Users, Target, Zap, Radio, Brain, Mail, MessageSquare, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { translations, type LangCode } from "@/lib/translations";
 
-import dinnerImg from "@/assets/dinner-event.jpg";
-import expeditionImg from "@/assets/expedition.jpg";
-import podcastImg from "@/assets/podcast.jpg";
-import companyVisitImg from "@/assets/company-visit.jpg";
-import trainingImg from "@/assets/training-center.jpg";
-
-// Translation context
 const LangContext = createContext<Record<string, string>>(translations.pt);
 function useT() { return useContext(LangContext); }
 
-// Intersection Observer hook
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -38,9 +29,7 @@ function Section({ children, className = "", delay = 0 }: { children: React.Reac
   );
 }
 
-const X = () => <span className="text-gradient-gold">X</span>;
-
-// ─── Hero ────────────────────────────────────────────────────
+// ─── Hero ─────────────────────────────────────────────────────
 function Hero() {
   const t = useT();
   return (
@@ -48,30 +37,43 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary animate-gradient" />
       <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, hsl(38 92% 50% / 0.15) 0%, transparent 50%), radial-gradient(circle at 70% 80%, hsl(38 80% 45% / 0.1) 0%, transparent 50%)" }} />
 
-      <div className="relative z-10 text-center max-w-2xl mx-auto">
+      <div className="relative z-10 text-center max-w-3xl mx-auto">
         <Section>
-          <Badge className="mb-6 px-4 py-1.5 text-xs tracking-widest uppercase border-primary/40 bg-primary/10 text-primary animate-pulse-glow">
-            <Star className="w-3 h-3 mr-1.5" /> {t.badge_invite}
-          </Badge>
-        </Section>
-
-        <Section delay={150}>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6">
-            {t.hero_title_1}{" "}
-            <span className="text-gradient-gold">{t.hero_title_2}</span>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            TURN
           </h1>
         </Section>
 
-        <Section delay={300}>
-          <p className="text-muted-foreground text-base sm:text-lg mb-8 max-w-lg mx-auto leading-relaxed">
-            {t.hero_desc}
+        <Section delay={100}>
+          <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground/90 mb-6 leading-tight">
+            {t.hero_tagline}
           </p>
         </Section>
 
-        <Section delay={450}>
-          <Button size="lg" className="btn-metallic-3d text-base px-8 py-6 rounded-full border-0 hover:bg-transparent">
-            {t.hero_cta} <ChevronRight className="w-5 h-5 ml-1" />
-          </Button>
+        <Section delay={200}>
+          <p className="text-muted-foreground text-base sm:text-lg mb-2 max-w-xl mx-auto leading-relaxed">
+            {t.hero_desc}
+          </p>
+          <p className="text-muted-foreground text-sm sm:text-base mb-6 max-w-xl mx-auto font-medium">
+            {t.hero_desc2}
+          </p>
+        </Section>
+
+        <Section delay={300}>
+          <p className="text-gradient-gold text-sm sm:text-base font-bold tracking-wide uppercase mb-8">
+            {t.hero_proof}
+          </p>
+        </Section>
+
+        <Section delay={400}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="btn-metallic-3d text-base px-8 py-6 rounded-full border-0 hover:bg-transparent">
+              {t.hero_cta1} <ChevronRight className="w-5 h-5 ml-1" />
+            </Button>
+            <Button size="lg" variant="outline" className="text-base px-8 py-6 rounded-full border-primary/40 text-primary hover:bg-primary/10">
+              {t.hero_cta2}
+            </Button>
+          </div>
         </Section>
       </div>
 
@@ -84,37 +86,89 @@ function Hero() {
   );
 }
 
-// ─── O que é ─────────────────────────────────────────────────
-function WhatIs() {
+// ─── Quebra de Crença ─────────────────────────────────────────
+function BeliefBreaker() {
   const t = useT();
-  const pillars = [
-    { icon: Users, title: t.pillar_networking, desc: t.pillar_networking_desc },
-    { icon: Calendar, title: t.pillar_events, desc: t.pillar_events_desc },
-    { icon: ShoppingBag, title: t.pillar_marketplace, desc: t.pillar_marketplace_desc },
-    { icon: Newspaper, title: t.pillar_content, desc: t.pillar_content_desc },
+  return (
+    <section className="py-20 sm:py-28 px-4">
+      <div className="max-w-3xl mx-auto text-center">
+        <Section>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            {t.belief_title}<br />
+            <span className="text-gradient-gold">{t.belief_title2}</span>
+          </h2>
+        </Section>
+        <Section delay={150}>
+          <p className="text-muted-foreground text-base sm:text-lg mb-4 leading-relaxed">
+            {t.belief_text}
+          </p>
+          <p className="text-foreground font-semibold text-lg sm:text-xl mb-1">
+            {t.belief_text2}
+          </p>
+          <p className="text-gradient-gold font-bold text-xl sm:text-2xl">
+            {t.belief_text3}
+          </p>
+        </Section>
+      </div>
+    </section>
+  );
+}
+
+// ─── Posicionamento ───────────────────────────────────────────
+function Positioning() {
+  const t = useT();
+  return (
+    <section className="py-20 sm:py-28 px-4">
+      <div className="max-w-3xl mx-auto">
+        <Section>
+          <div className="glass rounded-2xl p-8 sm:p-12 glow-amber text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6 leading-tight">
+              {t.position_title}<br />
+              <span className="text-gradient-gold">{t.position_title2}</span>
+            </h2>
+            <p className="text-muted-foreground text-base sm:text-lg mb-6 leading-relaxed max-w-xl mx-auto">
+              {t.position_text}
+            </p>
+            <p className="text-foreground font-medium text-base sm:text-lg mb-1">
+              {t.position_text2}
+            </p>
+            <p className="text-gradient-gold font-bold text-lg sm:text-xl">
+              {t.position_text3}
+            </p>
+          </div>
+        </Section>
+      </div>
+    </section>
+  );
+}
+
+// ─── Mecanismo ────────────────────────────────────────────────
+function Mechanism() {
+  const t = useT();
+  const blocks = [
+    { icon: Shield, title: t.mech_curation, desc: t.mech_curation_desc },
+    { icon: Crosshair, title: t.mech_match, desc: t.mech_match_desc },
+    { icon: Lock, title: t.mech_closed, desc: t.mech_closed_desc },
   ];
 
   return (
     <section className="py-20 sm:py-28 px-4">
       <div className="max-w-5xl mx-auto">
         <Section>
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-            {t.what_title}<X />{t.what_title_end}
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-14">
+            {t.mech_title} <span className="text-gradient-gold">{t.mech_title2}</span>
           </h2>
-          <p className="text-muted-foreground text-center max-w-xl mx-auto mb-14">
-            {t.what_desc}
-          </p>
         </Section>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-          {pillars.map((p, i) => (
-            <Section key={p.title} delay={i * 100}>
-              <div className="glass rounded-xl p-5 sm:p-6 text-center hover:glow-amber transition-shadow duration-300 group">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                  <p.icon className="w-6 h-6 text-primary" />
+        <div className="grid md:grid-cols-3 gap-6">
+          {blocks.map((b, i) => (
+            <Section key={b.title} delay={i * 120}>
+              <div className="glass rounded-xl p-6 sm:p-8 text-center hover:glow-amber transition-shadow duration-300 group h-full">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/20 transition-colors">
+                  <b.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="font-semibold text-sm sm:text-base mb-1">{p.title}</h3>
-                <p className="text-muted-foreground text-xs sm:text-sm leading-snug">{p.desc}</p>
+                <h3 className="font-bold text-lg mb-2">{b.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{b.desc}</p>
               </div>
             </Section>
           ))}
@@ -124,150 +178,34 @@ function WhatIs() {
   );
 }
 
-// ─── Planos ──────────────────────────────────────────────────
-function Plans() {
+// ─── Para quem é ──────────────────────────────────────────────
+function WhoIsItFor() {
   const t = useT();
-  const freeFeatures = [
-    { text: t.free_1, included: true },
-    { text: t.free_2, included: true },
-    { text: t.free_3, included: true },
-    { text: t.free_4, included: true },
-    { text: t.free_5, included: true },
-    { text: t.free_6, included: false },
-    { text: t.free_7, included: false },
-    { text: t.free_8, included: false },
-    { text: t.free_9, included: false },
-  ];
-
-  const proFeatures = [t.pro_1, t.pro_2, t.pro_3, t.pro_4, t.pro_5, t.pro_6, t.pro_7, t.pro_8, t.pro_9, t.pro_10, t.pro_11, t.pro_12];
-
-  return (
-    <section className="py-20 sm:py-28 px-4">
-      <div className="max-w-5xl mx-auto">
-        <Section>
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-            {t.plans_title_1} <span className="text-gradient-gold">{t.plans_title_2}</span>
-          </h2>
-          <p className="text-muted-foreground text-center max-w-lg mx-auto mb-14">
-            {t.plans_desc}
-          </p>
-        </Section>
-
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-          <Section>
-            <div className="glass rounded-2xl p-6 sm:p-8 h-full flex flex-col">
-              <h3 className="text-xl font-bold mb-1">{t.plan_free}</h3>
-              <p className="text-muted-foreground text-sm mb-6">{t.plan_free_sub}</p>
-              <div className="text-3xl font-bold mb-6">R$ 0<span className="text-sm font-normal text-muted-foreground">{t.month}</span></div>
-              <ul className="space-y-3 flex-1">
-                {freeFeatures.map((f) => (
-                  <li key={f.text} className="flex items-start gap-2.5 text-sm">
-                    {f.included ? (
-                      <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    ) : (
-                      <Lock className="w-4 h-4 text-muted-foreground/50 mt-0.5 shrink-0" />
-                    )}
-                    <span className={f.included ? "" : "text-muted-foreground/50"}>{f.text}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button variant="outline" className="mt-8 w-full rounded-full border-primary/40 text-primary hover:bg-primary/10">{t.plan_free_cta}</Button>
-            </div>
-          </Section>
-
-          <Section delay={150}>
-            <div className="relative glass rounded-2xl p-6 sm:p-8 h-full flex flex-col border-primary/30 glow-amber">
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 text-xs uppercase tracking-wider">{t.plan_recommended}</Badge>
-              <h3 className="text-xl font-bold mb-1">Turn<X />{t.plan_pro}</h3>
-              <p className="text-muted-foreground text-sm mb-6">{t.plan_pro_sub}</p>
-              <div className="text-3xl font-bold mb-6">R$ 229<span className="text-lg">,90</span><span className="text-sm font-normal text-muted-foreground">{t.month}</span></div>
-              <ul className="space-y-3 flex-1">
-                {proFeatures.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm">
-                    <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button className="mt-8 w-full rounded-full btn-metallic-3d border-0 hover:bg-transparent">{t.plan_pro_cta}</Button>
-            </div>
-          </Section>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── Experiências ────────────────────────────────────────────
-function Experiences() {
-  const t = useT();
-  const experiences = [
-    { img: dinnerImg, title: t.exp_dinner, desc: t.exp_dinner_desc, icon: UtensilsCrossed },
-    { img: expeditionImg, title: t.exp_expedition, desc: t.exp_expedition_desc, icon: Mountain },
-    { img: podcastImg, title: t.exp_podcast, desc: t.exp_podcast_desc, icon: Mic },
-    { img: companyVisitImg, title: t.exp_company, desc: t.exp_company_desc, icon: Building2 },
-    { img: trainingImg, title: t.exp_training, desc: t.exp_training_desc, icon: Dumbbell },
-  ];
-
-  return (
-    <section className="py-20 sm:py-28 px-4">
-      <div className="max-w-5xl mx-auto">
-        <Section>
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-            {t.exp_title_1} <span className="text-gradient-gold">{t.exp_title_2}</span>
-          </h2>
-          <p className="text-muted-foreground text-center max-w-lg mx-auto mb-14">
-            {t.exp_desc}
-          </p>
-        </Section>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {experiences.map((e, i) => (
-            <Section key={e.title} delay={i * 100}>
-              <div className="group relative rounded-xl overflow-hidden aspect-[4/3] cursor-pointer">
-                <img src={e.img} alt={e.title} loading="lazy" width={640} height={512} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <e.icon className="w-4 h-4 text-primary" />
-                    <h3 className="font-bold text-sm sm:text-base">{e.title}</h3>
-                  </div>
-                  <p className="text-muted-foreground text-xs sm:text-sm">{e.desc}</p>
-                </div>
-              </div>
-            </Section>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── Como funciona ───────────────────────────────────────────
-function HowItWorks() {
-  const t = useT();
-  const steps = [
-    { num: "01", title: t.step_1_title, desc: t.step_1_desc },
-    { num: "02", title: t.step_2_title, desc: t.step_2_desc },
-    { num: "03", title: t.step_3_title, desc: t.step_3_desc },
+  const profiles = [
+    { icon: Briefcase, text: t.who_1 },
+    { icon: TrendingUp, text: t.who_2 },
+    { icon: Users, text: t.who_3 },
+    { icon: Target, text: t.who_4 },
   ];
 
   return (
     <section className="py-20 sm:py-28 px-4">
       <div className="max-w-4xl mx-auto">
         <Section>
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-14">
-            {t.how_title_1} <span className="text-gradient-gold">{t.how_title_2}</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-14 leading-tight">
+            {t.who_title}<br />
+            <span className="text-gradient-gold">{t.who_title2}</span>
           </h2>
         </Section>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {steps.map((s, i) => (
-            <Section key={s.num} delay={i * 150}>
-              <div className="text-center">
-                <div className="text-5xl font-bold text-gradient-gold mb-4">{s.num}</div>
-                <h3 className="font-bold text-lg mb-2">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+          {profiles.map((p, i) => (
+            <Section key={p.text} delay={i * 100}>
+              <div className="glass rounded-xl p-5 sm:p-6 flex items-start gap-4 hover:glow-amber transition-shadow duration-300">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <p.icon className="w-5 h-5 text-primary" />
+                </div>
+                <p className="text-sm sm:text-base font-medium leading-snug">{p.text}</p>
               </div>
             </Section>
           ))}
@@ -277,40 +215,203 @@ function HowItWorks() {
   );
 }
 
-// ─── CTA Final ───────────────────────────────────────────────
+// ─── Proposta de Valor ────────────────────────────────────────
+function ValueProp() {
+  const t = useT();
+  const bullets = [t.value_1, t.value_2, t.value_3, t.value_4];
+
+  return (
+    <section className="py-20 sm:py-28 px-4">
+      <div className="max-w-3xl mx-auto text-center">
+        <Section>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-10">
+            {t.value_title} <span className="text-gradient-gold">{t.value_title2}</span>
+          </h2>
+        </Section>
+
+        <div className="grid sm:grid-cols-2 gap-4">
+          {bullets.map((b, i) => (
+            <Section key={b} delay={i * 100}>
+              <div className="glass rounded-xl p-5 flex items-center gap-3 hover:glow-amber transition-shadow duration-300">
+                <Zap className="w-5 h-5 text-primary shrink-0" />
+                <span className="text-sm sm:text-base font-medium">{b}</span>
+              </div>
+            </Section>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── TURN Connect ─────────────────────────────────────────────
+function TurnConnect() {
+  const t = useT();
+  const features = [
+    { icon: Radio, text: t.connect_1 },
+    { icon: Brain, text: t.connect_2 },
+    { icon: Mail, text: t.connect_3 },
+    { icon: MessageSquare, text: t.connect_4 },
+  ];
+
+  return (
+    <section className="py-20 sm:py-28 px-4">
+      <div className="max-w-5xl mx-auto">
+        <Section>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
+            {t.connect_title} <span className="text-gradient-gold">{t.connect_title2}</span>
+          </h2>
+          <p className="text-muted-foreground text-center max-w-xl mx-auto mb-14 text-base sm:text-lg">
+            {t.connect_desc}
+          </p>
+        </Section>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {features.map((f, i) => (
+            <Section key={f.text} delay={i * 100}>
+              <div className="glass rounded-xl p-5 sm:p-6 text-center hover:glow-amber transition-shadow duration-300 group h-full">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                  <f.icon className="w-6 h-6 text-primary" />
+                </div>
+                <p className="font-semibold text-sm sm:text-base">{f.text}</p>
+              </div>
+            </Section>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Prova Social ─────────────────────────────────────────────
+function SocialProof() {
+  const t = useT();
+  return (
+    <section className="py-20 sm:py-28 px-4">
+      <div className="max-w-3xl mx-auto text-center">
+        <Section>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            {t.social_title} <span className="text-gradient-gold">{t.social_title2}</span>
+          </h2>
+        </Section>
+        <Section delay={150}>
+          <div className="glass rounded-2xl p-8 sm:p-10 glow-amber">
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed italic">
+              "{t.social_text}"
+            </p>
+          </div>
+        </Section>
+      </div>
+    </section>
+  );
+}
+
+// ─── Planos ───────────────────────────────────────────────────
+function Plans() {
+  const t = useT();
+  return (
+    <section className="py-20 sm:py-28 px-4">
+      <div className="max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+          <Section>
+            <div className="glass rounded-2xl p-6 sm:p-8 h-full flex flex-col">
+              <h3 className="text-2xl font-bold mb-1">{t.plan_free}</h3>
+              <p className="text-primary text-sm font-medium mb-2">{t.plan_free_sub}</p>
+              <p className="text-muted-foreground text-sm mb-8">{t.plan_free_desc}</p>
+              <div className="text-3xl font-bold mb-8">R$ 0<span className="text-sm font-normal text-muted-foreground">{t.month}</span></div>
+              <div className="mt-auto">
+                <Button variant="outline" className="w-full rounded-full border-primary/40 text-primary hover:bg-primary/10 py-5">
+                  {t.plan_free_cta} <ArrowRight className="w-4 h-4 ml-1" />
+                </Button>
+              </div>
+            </div>
+          </Section>
+
+          <Section delay={150}>
+            <div className="relative glass rounded-2xl p-6 sm:p-8 h-full flex flex-col border-primary/30 glow-amber">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                {t.plan_recommended}
+              </div>
+              <h3 className="text-2xl font-bold mb-1">{t.plan_pro}</h3>
+              <p className="text-primary text-sm font-medium mb-2">{t.plan_pro_sub}</p>
+              <div className="text-3xl font-bold mb-8">R$ 229<span className="text-lg">,90</span><span className="text-sm font-normal text-muted-foreground">{t.month}</span></div>
+              <div className="mt-auto">
+                <Button className="w-full rounded-full btn-metallic-3d border-0 hover:bg-transparent py-5">
+                  {t.plan_pro_cta} <ArrowRight className="w-4 h-4 ml-1" />
+                </Button>
+              </div>
+            </div>
+          </Section>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Urgência ─────────────────────────────────────────────────
+function Urgency() {
+  const t = useT();
+  return (
+    <section className="py-20 sm:py-28 px-4">
+      <div className="max-w-3xl mx-auto text-center">
+        <Section>
+          <div className="glass rounded-2xl p-8 sm:p-12 border-destructive/20">
+            <Lock className="w-10 h-10 text-primary mx-auto mb-6" />
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              {t.urgency_title} <span className="text-gradient-gold">{t.urgency_title2}</span>
+            </h2>
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-lg mx-auto">
+              {t.urgency_text}
+            </p>
+          </div>
+        </Section>
+      </div>
+    </section>
+  );
+}
+
+// ─── CTA Final ────────────────────────────────────────────────
 function FinalCTA() {
   const t = useT();
   return (
     <section className="py-20 sm:py-28 px-4">
       <Section>
         <div className="max-w-2xl mx-auto text-center glass rounded-3xl p-8 sm:p-14 glow-amber-strong">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            {t.cta_title_1} <span className="text-gradient-gold">{t.cta_title_2}</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-2 leading-tight">
+            {t.cta_title}
           </h2>
-          <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-            {t.cta_desc_1}<X />{t.cta_desc_2}
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gradient-gold leading-tight">
+            {t.cta_title2}
+          </h2>
+          <p className="text-muted-foreground mb-8 max-w-md mx-auto text-base sm:text-lg">
+            {t.cta_desc}
           </p>
-          <Button size="lg" className="btn-metallic-3d text-base px-10 py-6 rounded-full border-0 animate-pulse-glow hover:bg-transparent">
-            {t.cta_button} <ChevronRight className="w-5 h-5 ml-1" />
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="btn-metallic-3d text-base px-10 py-6 rounded-full border-0 animate-pulse-glow hover:bg-transparent">
+              {t.cta_button1} <ChevronRight className="w-5 h-5 ml-1" />
+            </Button>
+            <Button size="lg" variant="outline" className="text-base px-10 py-6 rounded-full border-primary/40 text-primary hover:bg-primary/10">
+              {t.cta_button2}
+            </Button>
+          </div>
         </div>
       </Section>
     </section>
   );
 }
 
-// ─── Footer ──────────────────────────────────────────────────
+// ─── Footer ───────────────────────────────────────────────────
 function Footer() {
   const t = useT();
   return (
     <footer className="py-10 px-4 border-t border-border/30 text-center">
-      <p className="font-bold text-xl tracking-tight mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>TURN<X /> CLUBE</p>
-      <p className="text-muted-foreground text-xs">© {new Date().getFullYear()} Turn<X /> Clube. {t.footer_rights}</p>
+      <p className="font-bold text-xl tracking-tight mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>TURN</p>
+      <p className="text-muted-foreground text-xs">© {new Date().getFullYear()} TURN. {t.footer_rights}</p>
     </footer>
   );
 }
 
-// ─── Page ────────────────────────────────────────────────────
+// ─── Page ─────────────────────────────────────────────────────
 export default function Index() {
   const [lang, setLang] = useState<LangCode>("pt");
   const t = translations[lang];
@@ -320,10 +421,15 @@ export default function Index() {
       <main className="bg-background text-foreground overflow-x-hidden">
         <LanguageSwitcher current={lang} onChange={setLang} />
         <Hero />
-        <WhatIs />
-        <Experiences />
+        <BeliefBreaker />
+        <Positioning />
+        <Mechanism />
+        <WhoIsItFor />
+        <ValueProp />
+        <TurnConnect />
+        <SocialProof />
         <Plans />
-        <HowItWorks />
+        <Urgency />
         <FinalCTA />
         <Footer />
       </main>
