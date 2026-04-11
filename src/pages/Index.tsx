@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState, createContext, useContext } from "react";
 import { ChevronRight, Check, ArrowRight, Lock, AlertTriangle, X as XIcon, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { translations, type LangCode } from "@/lib/translations";
 import seccLogo from "@/assets/secc-logo.png";
+import estevaoPhoto from "@/assets/estevao-seccatto.png";
+import proofRicardo from "@/assets/proof-ricardo.jpg";
+import proofCamila from "@/assets/proof-camila.jpg";
+import proofAndre from "@/assets/proof-andre.jpg";
 
 const LangContext = createContext<Record<string, string>>(translations.pt);
 function useT() { return useContext(LangContext); }
