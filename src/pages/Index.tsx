@@ -119,7 +119,7 @@ function Hero() {
 
         <Section delay={50}>
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            TURN
+            SECC
           </h1>
         </Section>
 
@@ -372,7 +372,7 @@ function ValueProp() {
   );
 }
 
-// ─── TURN Connect ─────────────────────────────────────────────
+// ─── SECC Connect ─────────────────────────────────────────────
 function TurnConnect() {
   const t = useT();
   const features = [
@@ -734,7 +734,7 @@ function Footer() {
   return (
     <footer className="py-10 px-4 border-t border-border/30 text-center">
       <Logo />
-      <p className="text-muted-foreground text-xs mt-4">© {new Date().getFullYear()} TURN. {t.footer_rights}</p>
+      <p className="text-muted-foreground text-xs mt-4">© {new Date().getFullYear()} SECC. {t.footer_rights}</p>
     </footer>
   );
 }
