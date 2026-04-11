@@ -117,13 +117,18 @@ export default function Index() {
               </p>
             </Reveal>
 
+            {/* VSL - Video Sales Letter */}
             <Reveal delay={300}>
-              <p className="text-muted-foreground text-base sm:text-lg mb-3 max-w-xl mx-auto">
-                {t.lp_hero_desc}
-              </p>
-              <p className="text-gradient-gold text-sm sm:text-base font-bold tracking-wide uppercase mb-8">
-                {t.lp_hero_proof}
-              </p>
+              <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)] mb-6 max-w-2xl mx-auto">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/hQ9nQ-WMuQs?si=UdaqS1cUxVmA_hXU"
+                  title="SECC - Você precisa de negócios"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
             </Reveal>
 
             <Reveal delay={400}>
@@ -166,22 +171,6 @@ export default function Index() {
               </p>
             </Reveal>
 
-            {/* VSL - Video Sales Letter */}
-            <Reveal delay={400}>
-              <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)] mb-8">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/hQ9nQ-WMuQs?si=UdaqS1cUxVmA_hXU"
-                  title="SECC - Você precisa de negócios"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
-              </div>
-              <p className="text-center text-muted-foreground text-sm mb-8">
-                Assista agora e descubra como transformar contatos em negócios reais
-              </p>
-            </Reveal>
           </div>
         </section>
 
