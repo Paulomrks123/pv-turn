@@ -3,6 +3,7 @@ import { ChevronRight, Check, ArrowRight, Lock, AlertTriangle, X as XIcon, Menu 
 import { Button } from "@/components/ui/button";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { translations, type LangCode } from "@/lib/translations";
+import seccLogo from "@/assets/secc-logo.png";
 
 const LangContext = createContext<Record<string, string>>(translations.pt);
 function useT() { return useContext(LangContext); }
@@ -71,7 +72,7 @@ function TopBar() {
     <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`}>
       <div className="bg-background/90 backdrop-blur-xl border-b border-border/30 py-2.5 px-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <span className="font-bold text-lg tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>SECC</span>
+          <img src={seccLogo} alt="SECC" className="h-8 w-auto" width={128} height={32} />
           <Button size="sm" className="btn-metallic-3d rounded-full border-0 hover:bg-transparent text-sm px-5">
             {t.lp_cta_short} <ArrowRight className="w-4 h-4 ml-1" />
           </Button>
@@ -472,7 +473,7 @@ export default function Index() {
 
         {/* ━━━━━━━━━━━━ FOOTER MÍNIMO ━━━━━━━━━━━━ */}
         <footer className="py-8 px-4 border-t border-border/30 text-center">
-          <span className="font-bold text-lg tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>SECC</span>
+          <img src={seccLogo} alt="SECC" className="h-10 w-auto mx-auto mb-2" width={160} height={40} />
           <p className="text-muted-foreground text-xs mt-2">© {new Date().getFullYear()} SECC. {t.lp_footer}</p>
         </footer>
       </main>
