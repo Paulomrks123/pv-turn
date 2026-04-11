@@ -151,6 +151,24 @@ export default function Index() {
                 {t.lp_break_h2}
               </h2>
             </Reveal>
+
+            {/* VSL - Video Sales Letter */}
+            <Reveal delay={150}>
+              <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)] mb-8">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/hQ9nQ-WMuQs?si=UdaqS1cUxVmA_hXU"
+                  title="SECC - Você precisa de negócios"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+              <p className="text-center text-muted-foreground text-sm mb-8">
+                Assista agora e descubra como transformar contatos em negócios reais
+              </p>
+            </Reveal>
+
             <Reveal delay={200}>
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4">
                 {t.lp_break_p2}
@@ -162,23 +180,6 @@ export default function Index() {
               </p>
               <p className="text-2xl sm:text-3xl font-bold mb-8">
                 <GoldHighlight>{t.lp_break_gold1}</GoldHighlight>
-              </p>
-            </Reveal>
-
-            {/* VSL - Video Sales Letter */}
-            <Reveal delay={400}>
-              <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)]">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/hQ9nQ-WMuQs?si=UdaqS1cUxVmA_hXU"
-                  title="SECC - Você precisa de negócios"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
-              </div>
-              <p className="text-center text-muted-foreground text-sm mt-4">
-                Assista agora e descubra como transformar contatos em negócios reais
               </p>
             </Reveal>
           </div>
