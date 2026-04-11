@@ -147,7 +147,7 @@ export default function Index() {
         </section>
 
         {/* ━━━━━━━━━━━━ QUEBRA DE CRENÇA ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-6">
@@ -180,7 +180,7 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ O QUE É A SECC — POSICIONAMENTO ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6">
@@ -202,7 +202,7 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ MECANISMO — 3 BLOCOS ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-3xl mx-auto">
             <Reveal>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 leading-tight">
@@ -243,7 +243,7 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ PARA QUEM É ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 leading-tight">
@@ -274,7 +274,7 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ O QUE VOCÊ GANHA ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 leading-tight">
@@ -294,7 +294,7 @@ export default function Index() {
         </section>
 
         {/* ━━━━━━━━━━━━ SECC CONNECT — DIFERENCIAL ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24 relative" style={{ background: "linear-gradient(180deg, hsl(220 30% 8%) 0%, hsl(220 35% 12%) 50%, hsl(220 30% 8%) 100%)" }}>
+        <section className="px-4 py-10 sm:py-14 relative" style={{ background: "linear-gradient(180deg, hsl(220 30% 8%) 0%, hsl(220 35% 12%) 50%, hsl(220 30% 8%) 100%)" }}>
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <div className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary/80 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-6">
@@ -331,7 +331,7 @@ export default function Index() {
         </section>
 
         {/* ━━━━━━━━━━━━ SEU PROFESSOR ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24 relative" style={{ background: "linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 35% 10%) 50%, hsl(220 30% 6%) 100%)" }}>
+        <section className="px-4 py-10 sm:py-14 relative" style={{ background: "linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 35% 10%) 50%, hsl(220 30% 6%) 100%)" }}>
           <div className="max-w-3xl mx-auto">
             <Reveal>
               <div className="text-center mb-8">
@@ -381,7 +381,7 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ PROVA SOCIAL ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 leading-tight">
@@ -410,7 +410,7 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ PLANOS — FUNDO AZUL ━━━━━━━━━━━━ */}
-        <section id="planos" className="py-20 sm:py-28 px-4 relative" style={{ background: "linear-gradient(135deg, hsl(220 60% 10%), hsl(220 50% 16%), hsl(220 60% 10%))" }}>
+        <section id="planos" className="py-12 sm:py-16 px-4 relative" style={{ background: "linear-gradient(135deg, hsl(220 60% 10%), hsl(220 50% 16%), hsl(220 60% 10%))" }}>
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/8 rounded-full blur-[120px]" />
           </div>
@@ -473,7 +473,7 @@ export default function Index() {
         </section>
 
         {/* ━━━━━━━━━━━━ URGÊNCIA / ESCASSEZ ━━━━━━━━━━━━ */}
-        <section className="px-4 py-16 sm:py-24">
+        <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto text-center">
             <Reveal>
               <Lock className="w-10 h-10 text-primary mx-auto mb-6" />
@@ -498,7 +498,7 @@ export default function Index() {
         <FAQSection />
 
         {/* ━━━━━━━━━━━━ CTA FINAL — GRANDE ━━━━━━━━━━━━ */}
-        <section className="px-4 py-20 sm:py-28">
+        <section className="px-4 py-12 sm:py-16">
           <Reveal>
             <div className="max-w-2xl mx-auto text-center glass rounded-3xl p-8 sm:p-14 glow-amber-strong">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 leading-tight">
@@ -536,7 +536,7 @@ function FAQSection() {
   ];
 
   return (
-    <section className="px-4 py-16 sm:py-24">
+    <section className="px-4 py-10 sm:py-14">
       <div className="max-w-2xl mx-auto">
         <Reveal>
           <h2 className="text-2xl sm:text-3xl font-bold mb-8">{t.lp_faq_title}</h2>
