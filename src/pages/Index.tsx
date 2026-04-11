@@ -60,7 +60,16 @@ function GoldHighlight({ children }: { children: React.ReactNode }) {
   return <span className="text-gradient-gold font-bold">{children}</span>;
 }
 
-/* ─── Theme Toggle ───────────────────────────────────────────── */
+/* ─── Logo component (switches for light/dark) ──────────────── */
+function Logo({ className = "h-8" }: { className?: string }) {
+  return (
+    <>
+      <img src={seccLogo} alt="SECC" className={`${className} w-auto dark:block hidden`} width={128} height={32} />
+      <span className={`dark:hidden font-bold tracking-tight text-foreground ${className === "h-8" ? "text-2xl" : "text-3xl"}`} style={{ fontFamily: "'Space Grotesk', sans-serif" }}>SECC</span>
+    </>
+  );
+}
+
 function ThemeToggle() {
   const [dark, setDark] = useState(false);
   useEffect(() => {
@@ -88,7 +97,7 @@ function TopBar() {
     <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`}>
       <div className="bg-background/90 backdrop-blur-xl border-b border-border/30 py-2.5 px-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <img src={seccLogo} alt="SECC" className="h-8 w-auto" width={128} height={32} />
+          <Logo className="h-8" />
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Button size="sm" className="btn-metallic-3d rounded-full border-0 hover:bg-transparent text-sm px-5">
@@ -530,8 +539,8 @@ export default function Index() {
         </section>
 
         {/* ━━━━━━━━━━━━ FOOTER MÍNIMO ━━━━━━━━━━━━ */}
-        <footer className="py-8 px-4 border-t border-border/30 text-center">
-          <img src={seccLogo} alt="SECC" className="h-10 w-auto mx-auto mb-2" width={160} height={40} />
+        <footer className="py-8 px-4 border-t border-border/30 text-center flex flex-col items-center">
+          <Logo className="h-10" />
           <p className="text-muted-foreground text-xs mt-2">© {new Date().getFullYear()} SECC. {t.lp_footer}</p>
         </footer>
       </main>
