@@ -330,6 +330,56 @@ export default function Index() {
           </div>
         </section>
 
+        {/* ━━━━━━━━━━━━ SEU PROFESSOR ━━━━━━━━━━━━ */}
+        <section className="px-4 py-16 sm:py-24 relative" style={{ background: "linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 35% 10%) 50%, hsl(220 30% 6%) 100%)" }}>
+          <div className="max-w-3xl mx-auto">
+            <Reveal>
+              <div className="text-center mb-8">
+                <div className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary/80 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-6">
+                  Seu Professor
+                </div>
+              </div>
+            </Reveal>
+
+            <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+              <Reveal delay={100}>
+                <div className="shrink-0 w-64 sm:w-72 md:w-80">
+                  <img src={estevaoPhoto} alt="Estêvão Seccatto" className="w-full rounded-2xl border-2 border-primary/20 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)]" loading="lazy" width={640} height={960} />
+                </div>
+              </Reveal>
+
+              <Reveal delay={200}>
+                <div>
+                  <h2 className="text-3xl sm:text-4xl font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Estêvão Seccatto</h2>
+                  <p className="text-primary font-semibold text-base mb-5">Empreendedor em Série • Presidente do TURN</p>
+                  
+                  <div className="space-y-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
+                    <p>Especializado em resolver situações complexas (crise e pressão de tempo) com abordagem holística, criando valor, orientado à execução e a resultados, capaz de reunir competências e liderar equipes de alto desempenho.</p>
+                    <p>Ao longo de 2 décadas, +130 empresas assessoradas (turnaround, reestruturação, M&A, mercado de capitais, captação de recursos, negociação de dívidas), com diversos portes, setores e tipos de desafios. +R$20 bilhões em transações realizadas.</p>
+                    <p>Professor e Coordenador de Turnaround na FIA Business School, Empiricus Research e Mundo Financeiro (primeiro e único Certificado em Turnaround 100% online), além de criador do Bootcamp de Turnaround. Colunista da Agência Estado, Money Times e SBT News.</p>
+                    <p>Coordenador de colocação de refugiados da Associação Compassiva (pro-bono).</p>
+                    <p>Presidente do TURN, uma das maiores associações de profissionais atuantes em turnaround e reestruturação empresarial do Brasil.</p>
+                  </div>
+
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    {[
+                      "+130 empresas assessoradas",
+                      "+R$ 20 BI em transações",
+                      "Professor FIA Business School",
+                      "Presidente do TURN",
+                      "Colunista Agência Estado & SBT News",
+                    ].map((badge) => (
+                      <span key={badge} className="text-xs font-semibold bg-primary/10 text-primary border border-primary/20 rounded-full px-3 py-1.5">{badge}</span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        <Divider />
+
         {/* ━━━━━━━━━━━━ PROVA SOCIAL ━━━━━━━━━━━━ */}
         <section className="px-4 py-16 sm:py-24">
           <div className="max-w-2xl mx-auto">
@@ -340,14 +390,17 @@ export default function Index() {
             </Reveal>
 
             {[
-              { text: t.lp_proof_1_text, name: t.lp_proof_1_name },
-              { text: t.lp_proof_2_text, name: t.lp_proof_2_name },
-              { text: t.lp_proof_3_text, name: t.lp_proof_3_name },
+              { text: t.lp_proof_1_text, name: t.lp_proof_1_name, photo: proofRicardo },
+              { text: t.lp_proof_2_text, name: t.lp_proof_2_name, photo: proofCamila },
+              { text: t.lp_proof_3_text, name: t.lp_proof_3_name, photo: proofAndre },
             ].map((tm, i) => (
               <Reveal key={i} delay={i * 150}>
-                <div className="mb-8 glass rounded-xl p-6">
-                  <p className="text-foreground text-base sm:text-lg italic leading-relaxed mb-3">"{tm.text}"</p>
-                  <p className="text-primary text-sm font-semibold">— {tm.name}</p>
+                <div className="mb-8 glass rounded-xl p-6 flex gap-4 items-start">
+                  <img src={tm.photo} alt={tm.name} className="w-14 h-14 rounded-full object-cover border-2 border-primary/20 shrink-0" loading="lazy" width={56} height={56} />
+                  <div>
+                    <p className="text-foreground text-base sm:text-lg italic leading-relaxed mb-3">"{tm.text}"</p>
+                    <p className="text-primary text-sm font-semibold">— {tm.name}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}
