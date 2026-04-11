@@ -139,11 +139,7 @@ export default function Index() {
             </Reveal>
           </div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-            <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center pt-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-primary animate-bounce" />
-            </div>
-          </div>
+
         </section>
 
         {/* ━━━━━━━━━━━━ QUEBRA DE CRENÇA ━━━━━━━━━━━━ */}
