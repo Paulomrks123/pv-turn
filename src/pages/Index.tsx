@@ -166,6 +166,27 @@ export default function Index() {
           </div>
         </section>
 
+        {/* VSL - Video Sales Letter */}
+        <section className="px-4 py-12 sm:py-16">
+          <div className="max-w-3xl mx-auto">
+            <Reveal>
+              <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)]">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/hQ9nQ-WMuQs?si=UdaqS1cUxVmA_hXU"
+                  title="SECC - Você precisa de negócios"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+              <p className="text-center text-muted-foreground text-sm mt-4">
+                Assista agora e descubra como transformar contatos em negócios reais
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
         <Divider />
 
         {/* ━━━━━━━━━━━━ O QUE É A SECC — POSICIONAMENTO ━━━━━━━━━━━━ */}
