@@ -96,33 +96,33 @@ export default function Index() {
         
 
         {/* ━━━━━━━━━━━━ HERO — ABOVE THE FOLD ━━━━━━━━━━━━ */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
+        <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden px-4 py-14">
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary animate-gradient" />
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, hsl(38 92% 50% / 0.15) 0%, transparent 50%), radial-gradient(circle at 70% 80%, hsl(38 80% 45% / 0.1) 0%, transparent 50%)" }} />
 
           <div className="relative z-10 text-center max-w-3xl mx-auto">
             <Reveal>
-              <div className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary/80 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-8">
+              <div className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary/80 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-5">
                 ⚡ {t.lp_hero_badge}
               </div>
             </Reveal>
 
             <Reveal delay={100}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 leading-[1.05]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 leading-[1.05]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                 {t.lp_hero_h1_1}<br />
                 <GoldHighlight>{t.lp_hero_h1_2}</GoldHighlight>
               </h1>
             </Reveal>
 
             <Reveal delay={200}>
-              <p className="text-lg sm:text-xl md:text-2xl text-foreground/85 mb-4 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-foreground/85 mb-4 leading-relaxed max-w-2xl mx-auto">
                 {t.lp_hero_sub}
               </p>
             </Reveal>
 
             {/* VSL - Video Sales Letter */}
             <Reveal delay={300}>
-              <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)] mb-6 max-w-2xl mx-auto">
+              <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)] mb-4 max-w-2xl mx-auto">
                 <iframe
                   className="w-full h-full"
                   src="https://www.youtube.com/embed/hQ9nQ-WMuQs?si=UdaqS1cUxVmA_hXU"
