@@ -152,8 +152,22 @@ export default function Index() {
               </h2>
             </Reveal>
 
+            <Reveal delay={200}>
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4">
+                {t.lp_break_p2}
+              </p>
+            </Reveal>
+            <Reveal delay={300}>
+              <p className="text-foreground text-lg sm:text-xl font-semibold mb-1">
+                {t.lp_break_bold1}
+              </p>
+              <p className="text-2xl sm:text-3xl font-bold mb-8">
+                <GoldHighlight>{t.lp_break_gold1}</GoldHighlight>
+              </p>
+            </Reveal>
+
             {/* VSL - Video Sales Letter */}
-            <Reveal delay={150}>
+            <Reveal delay={400}>
               <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)] mb-8">
                 <iframe
                   className="w-full h-full"
@@ -166,20 +180,6 @@ export default function Index() {
               </div>
               <p className="text-center text-muted-foreground text-sm mb-8">
                 Assista agora e descubra como transformar contatos em negócios reais
-              </p>
-            </Reveal>
-
-            <Reveal delay={200}>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4">
-                {t.lp_break_p2}
-              </p>
-            </Reveal>
-            <Reveal delay={300}>
-              <p className="text-foreground text-lg sm:text-xl font-semibold mb-1">
-                {t.lp_break_bold1}
-              </p>
-              <p className="text-2xl sm:text-3xl font-bold mb-8">
-                <GoldHighlight>{t.lp_break_gold1}</GoldHighlight>
               </p>
             </Reveal>
           </div>
