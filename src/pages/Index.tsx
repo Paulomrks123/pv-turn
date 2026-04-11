@@ -93,7 +93,7 @@ export default function Index() {
     <LangContext.Provider value={t}>
       <main className="bg-background text-foreground overflow-x-hidden">
         <TopBar />
-        <LanguageSwitcher current={lang} onChange={setLang} />
+        
 
         {/* ━━━━━━━━━━━━ HERO — ABOVE THE FOLD ━━━━━━━━━━━━ */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
