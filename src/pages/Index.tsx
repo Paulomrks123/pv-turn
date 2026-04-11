@@ -539,7 +539,7 @@ export default function Index() {
         </section>
 
         {/* ━━━━━━━━━━━━ FOOTER MÍNIMO ━━━━━━━━━━━━ */}
-        <footer className="py-8 px-4 border-t border-border/30 text-center">
+        <footer className="py-8 px-4 border-t border-border/30 text-center flex flex-col items-center">
           <Logo className="h-10" />
           <p className="text-muted-foreground text-xs mt-2">© {new Date().getFullYear()} SECC. {t.lp_footer}</p>
         </footer>
