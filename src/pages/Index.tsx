@@ -310,7 +310,7 @@ export default function Index() {
         </section>
 
         {/* ━━━━━━━━━━━━ SECC CONNECT — DIFERENCIAL ━━━━━━━━━━━━ */}
-        <section className="px-4 py-10 sm:py-14 relative" style={{ background: "linear-gradient(180deg, hsl(220 30% 8%) 0%, hsl(220 35% 12%) 50%, hsl(220 30% 8%) 100%)" }}>
+        <section className="px-4 py-10 sm:py-14 relative dark-section" style={{ background: "linear-gradient(180deg, hsl(220 30% 8%) 0%, hsl(220 35% 12%) 50%, hsl(220 30% 8%) 100%)" }}>
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <div className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary/80 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-6">
@@ -347,7 +347,7 @@ export default function Index() {
         </section>
 
         {/* ━━━━━━━━━━━━ SEU PROFESSOR ━━━━━━━━━━━━ */}
-        <section className="px-4 py-10 sm:py-14 relative" style={{ background: "linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 35% 10%) 50%, hsl(220 30% 6%) 100%)" }}>
+        <section className="px-4 py-10 sm:py-14 relative dark-section" style={{ background: "linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 35% 10%) 50%, hsl(220 30% 6%) 100%)" }}>
           <div className="max-w-3xl mx-auto">
             <Reveal>
               <div className="text-center mb-8">
@@ -426,7 +426,7 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ PLANOS — FUNDO AZUL ━━━━━━━━━━━━ */}
-        <section id="planos" className="py-12 sm:py-16 px-4 relative" style={{ background: "linear-gradient(135deg, hsl(220 60% 10%), hsl(220 50% 16%), hsl(220 60% 10%))" }}>
+        <section id="planos" className="py-12 sm:py-16 px-4 relative dark-section" style={{ background: "linear-gradient(135deg, hsl(220 60% 10%), hsl(220 50% 16%), hsl(220 60% 10%))" }}>
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/8 rounded-full blur-[120px]" />
           </div>
