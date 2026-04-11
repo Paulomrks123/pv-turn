@@ -60,7 +60,16 @@ function GoldHighlight({ children }: { children: React.ReactNode }) {
   return <span className="text-gradient-gold font-bold">{children}</span>;
 }
 
-/* ─── Theme Toggle ───────────────────────────────────────────── */
+/* ─── Logo component (switches for light/dark) ──────────────── */
+function Logo({ className = "h-8" }: { className?: string }) {
+  return (
+    <>
+      <img src={seccLogo} alt="SECC" className={`${className} w-auto dark:block hidden`} width={128} height={32} />
+      <span className={`dark:hidden font-bold tracking-tight text-foreground ${className === "h-8" ? "text-2xl" : "text-3xl"}`} style={{ fontFamily: "'Space Grotesk', sans-serif" }}>SECC</span>
+    </>
+  );
+}
+
 function ThemeToggle() {
   const [dark, setDark] = useState(false);
   useEffect(() => {
