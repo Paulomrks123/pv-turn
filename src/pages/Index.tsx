@@ -43,6 +43,50 @@ function Reveal({ children, className = "", delay = 0, direction = "up" }: { chi
   );
 }
 
+/* ─── Floating Particles Background ────────────────────────── */
+function FloatingParticles({ count = 20, color = "hsl(215 100% 50%)" }: { count?: number; color?: string }) {
+  const particles = Array.from({ length: count }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    size: Math.random() * 4 + 2,
+    duration: Math.random() * 8 + 6,
+    delay: Math.random() * 5,
+    opacity: Math.random() * 0.3 + 0.1,
+  }));
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particles.map(p => (
+        <div
+          key={p.id}
+          className="particle"
+          style={{
+            left: p.left,
+            bottom: "-10px",
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            background: color,
+            animationDuration: `${p.duration}s`,
+            animationDelay: `${p.delay}s`,
+            opacity: p.opacity,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ─── Animated Orbs ────────────────────────────────────────── */
+function HeroOrbs() {
+  return (
+    <>
+      <div className="hero-orb w-[300px] h-[300px] bg-primary/15 top-[10%] left-[10%]" />
+      <div className="hero-orb w-[250px] h-[250px] bg-primary/10 bottom-[15%] right-[10%]" style={{ animationDelay: "2s", animationDuration: "10s" }} />
+      <div className="hero-orb w-[180px] h-[180px] bg-primary/8 top-[50%] left-[50%]" style={{ animationDelay: "4s", animationDuration: "12s" }} />
+    </>
+  );
+}
+
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 /*  LONG-FORM PERSUASIVE LANDING PAGE                            */
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -63,7 +107,7 @@ function CTA({ primary, secondary }: { primary: string; secondary?: string }) {
 }
 
 function Divider() {
-  return <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent mx-auto my-8 sm:my-10" />;
+  return <div className="divider-glow w-32 mx-auto my-8 sm:my-10 rounded-full" />;
 }
 
 function GoldHighlight({ children }: { children: React.ReactNode }) {
