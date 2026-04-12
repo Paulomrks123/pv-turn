@@ -44,7 +44,7 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 function CTA({ primary, secondary }: { primary: string; secondary?: string }) {
   return (
     <div className="flex flex-col sm:flex-row gap-3 justify-center my-6">
-      <Button size="lg" className="btn-metallic-3d text-base px-10 py-6 rounded-full border-0 hover:bg-transparent animate-pulse-glow">
+      <Button size="lg" className="btn-metallic-3d btn-pulse text-base px-10 py-6 rounded-full border-0 hover:bg-transparent animate-pulse-glow">
         {primary} <ChevronRight className="w-5 h-5 ml-1" />
       </Button>
       {secondary && (
@@ -104,7 +104,7 @@ function TopBar() {
           <Logo className="h-8" />
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button size="sm" className="btn-metallic-3d rounded-full border-0 hover:bg-transparent text-sm px-5">
+            <Button size="sm" className="btn-metallic-3d btn-pulse rounded-full border-0 hover:bg-transparent text-sm px-5">
               {t.lp_cta_short} <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
@@ -516,7 +516,7 @@ export default function Index() {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full rounded-full btn-metallic-3d border-0 hover:bg-transparent py-5">
+                  <Button className="w-full rounded-full btn-metallic-3d btn-pulse border-0 hover:bg-transparent py-5">
                     {t.lp_plan_pro_cta} <ArrowRight className="w-4 h-4 ml-1" />
                   </Button>
                 </div>
