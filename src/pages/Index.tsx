@@ -146,14 +146,14 @@ export default function Index() {
               </div>
             </Reveal>
 
-            <Reveal delay={100}>
+            <Reveal delay={100} direction="left">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 leading-[1.05]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                 {t.lp_hero_h1_1}<br />
                 <GoldHighlight>{t.lp_hero_h1_2}</GoldHighlight>
               </h1>
             </Reveal>
 
-            <Reveal delay={200}>
+            <Reveal delay={200} direction="right">
               <p className="text-base sm:text-lg md:text-xl text-foreground mb-4 leading-relaxed max-w-2xl mx-auto">
                 {t.lp_hero_sub}
               </p>
@@ -250,7 +250,7 @@ export default function Index() {
               { num: "02", title: t.lp_mech_2_title, desc: t.lp_mech_2_desc },
               { num: "03", title: t.lp_mech_3_title, desc: t.lp_mech_3_desc },
             ].map((item, i) => (
-              <Reveal key={item.num} delay={i * 150}>
+              <Reveal key={item.num} delay={i * 150} direction="scale">
                 <div className="flex gap-5 sm:gap-6 mb-10 sm:mb-12 card-elevated p-5">
                   <div className="shrink-0 w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
                     <span className="text-primary font-bold text-sm">{item.num}</span>
