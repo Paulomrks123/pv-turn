@@ -31,13 +31,13 @@ function useInView(threshold = 0.1) {
 function Reveal({ children, className = "", delay = 0, direction = "up" }: { children: React.ReactNode; className?: string; delay?: number; direction?: "up" | "left" | "right" | "scale" }) {
   const { ref, inView } = useInView();
   const directionClasses = {
-    up: inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
-    left: inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10",
-    right: inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10",
-    scale: inView ? "opacity-100 scale-100" : "opacity-0 scale-90",
+    up: inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
+    left: inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-16",
+    right: inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-16",
+    scale: inView ? "opacity-100 scale-100" : "opacity-0 scale-85",
   };
   return (
-    <div ref={ref} className={`transition-all duration-700 ease-out ${directionClasses[direction]} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+    <div ref={ref} className={`transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${directionClasses[direction]} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
       {children}
     </div>
   );
