@@ -536,7 +536,7 @@ export default function Index() {
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
               {/* SECC-In */}
               <Reveal>
-                <div className="rounded-2xl p-6 sm:p-8 h-full flex flex-col border border-white/10 bg-white/5 backdrop-blur-sm">
+                <div className="rounded-2xl p-6 sm:p-8 h-full flex flex-col border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/25 hover:-translate-y-2 transition-all duration-500">
                   <h3 className="text-xl font-bold text-white mb-1">SECC-In</h3>
                   <div className="text-3xl font-bold text-white mb-1">{t.lp_plan_free_price}</div>
                   <p className="text-white/50 text-sm mb-6">{t.lp_plan_free_desc}</p>
@@ -556,7 +556,7 @@ export default function Index() {
 
               {/* SECC-Pro */}
               <Reveal delay={150}>
-                <div className="relative rounded-2xl p-6 sm:p-8 h-full flex flex-col border border-primary/40 bg-primary/5 backdrop-blur-sm shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)]">
+                <div className="relative rounded-2xl p-6 sm:p-8 h-full flex flex-col border border-primary/40 bg-primary/5 backdrop-blur-sm shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)] animate-border-glow hover:-translate-y-2 hover:shadow-[0_0_60px_-10px_hsl(var(--primary)/0.5)] transition-all duration-500">
                   <div className="absolute -top-3 right-6 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full">
                     {t.lp_plan_pro_popular}
                   </div>
