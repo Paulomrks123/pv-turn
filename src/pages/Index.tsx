@@ -245,7 +245,7 @@ export default function Index() {
               { num: "03", title: t.lp_mech_3_title, desc: t.lp_mech_3_desc },
             ].map((item, i) => (
               <Reveal key={item.num} delay={i * 150}>
-                <div className="flex gap-5 sm:gap-6 mb-10 sm:mb-12 bg-card rounded-xl p-5 border border-border shadow-sm">
+                <div className="flex gap-5 sm:gap-6 mb-10 sm:mb-12 card-elevated p-5">
                   <div className="shrink-0 w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
                     <span className="text-primary font-bold text-sm">{item.num}</span>
                   </div>
@@ -282,7 +282,7 @@ export default function Index() {
 
             {[t.lp_who_1, t.lp_who_2, t.lp_who_3, t.lp_who_4].map((item, i) => (
               <Reveal key={i} delay={i * 100}>
-                <div className="flex items-start gap-3 mb-5 bg-card rounded-lg p-4 border border-border shadow-sm">
+                <div className="flex items-start gap-3 mb-5 card-elevated p-4">
                   <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                   <p className="text-foreground text-base sm:text-lg">{item}</p>
                 </div>
@@ -290,7 +290,7 @@ export default function Index() {
             ))}
 
             <Reveal delay={500}>
-              <div className="mt-8 glass rounded-xl p-5 border-destructive/20">
+              <div className="mt-8 card-elevated rounded-xl p-5 border-destructive/20">
                 <p className="text-muted-foreground text-sm sm:text-base flex items-start gap-2">
                   <AlertTriangle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                   {t.lp_who_warning}
@@ -313,7 +313,7 @@ export default function Index() {
 
             {[t.lp_value_1, t.lp_value_2, t.lp_value_3, t.lp_value_4, t.lp_value_5, t.lp_value_6].map((item, i) => (
               <Reveal key={i} delay={i * 80}>
-                <div className="flex items-start gap-3 mb-4 bg-card rounded-lg p-4 border border-border shadow-sm">
+                <div className="flex items-start gap-3 mb-4 card-elevated p-4">
                   <div className="w-2 h-2 rounded-full bg-primary shrink-0 mt-2" />
                   <p className="text-foreground text-base sm:text-lg">{item}</p>
                 </div>
@@ -448,7 +448,7 @@ export default function Index() {
               { text: t.lp_proof_3_text, name: t.lp_proof_3_name, photo: proofAndre },
             ].map((tm, i) => (
               <Reveal key={i} delay={i * 150}>
-                <div className="mb-8 bg-card rounded-xl p-6 flex gap-4 items-start border border-border shadow-md">
+                <div className="mb-8 card-elevated rounded-xl p-6 flex gap-4 items-start">
                   <img src={tm.photo} alt={tm.name} className="w-14 h-14 rounded-full object-cover border-2 border-primary/20 shrink-0" loading="lazy" width={56} height={56} />
                   <div>
                     <p className="text-foreground text-base sm:text-lg italic leading-relaxed mb-3">"{tm.text}"</p>
@@ -553,7 +553,7 @@ export default function Index() {
         {/* ━━━━━━━━━━━━ CTA FINAL — GRANDE ━━━━━━━━━━━━ */}
         <section className="px-4 py-12 sm:py-16">
           <Reveal>
-            <div className="max-w-2xl mx-auto text-center glass rounded-3xl p-8 sm:p-14 glow-amber-strong">
+            <div className="max-w-2xl mx-auto text-center card-elevated rounded-3xl p-8 sm:p-14 glow-amber-strong">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 leading-tight">
                 {t.lp_final_h2_1}
               </h2>
@@ -597,7 +597,7 @@ function FAQSection() {
         <div className="space-y-3">
           {items.map((item, i) => (
             <Reveal key={i} delay={i * 60}>
-              <div className="glass rounded-xl overflow-hidden">
+              <div className="card-elevated rounded-xl overflow-hidden">
                 <button
                   className="w-full text-left p-5 flex items-center justify-between gap-4 hover:bg-primary/5 transition-colors"
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
