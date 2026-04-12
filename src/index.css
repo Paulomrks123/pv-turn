@@ -125,19 +125,42 @@
   }
 
   .card-elevated {
-    @apply border-2 border-border rounded-xl transition-all duration-300 ease-out;
-    background: linear-gradient(145deg, hsl(216 20% 95%), hsl(216 25% 89%), hsl(216 20% 92%));
+    @apply border-2 border-border rounded-xl transition-all duration-500 ease-out;
+    background: linear-gradient(145deg, hsl(216 20% 97%), hsl(216 25% 92%), hsl(216 20% 95%));
     box-shadow: 0 6px 24px -4px hsl(215 100% 40% / 0.18), 0 2px 8px -2px hsl(215 100% 40% / 0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-elevated::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.7s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .card-elevated:hover::before {
+    left: 125%;
   }
 
   .dark .card-elevated {
     background: linear-gradient(145deg, hsl(220 25% 14%), hsl(220 28% 11%), hsl(220 25% 13%));
   }
 
+  .dark .card-elevated::before {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  }
+
   .card-elevated:hover {
-    @apply -translate-y-2;
-    border-color: hsl(215 100% 40% / 0.5);
-    box-shadow: 0 16px 44px -6px hsl(215 100% 40% / 0.32), 0 6px 16px -2px hsl(215 100% 40% / 0.18);
+    @apply -translate-y-3;
+    border-color: hsl(215 100% 50% / 0.6);
+    box-shadow: 0 20px 50px -8px hsl(215 100% 50% / 0.35), 0 8px 20px -4px hsl(215 100% 50% / 0.2);
   }
 
   .btn-pulse {
@@ -171,28 +194,12 @@
   color: hsl(0 0% 100%);
 }
 
-/* Force white text in dark-background sections (light mode) */
-.dark-section {
-  color: hsl(40 10% 92%);
-}
-
-.dark-section h1,
-.dark-section h2,
-.dark-section h3,
-.dark-section p,
-.dark-section span,
-.dark-section li,
-.dark-section div {
-  color: inherit;
-}
-
-.dark-section .text-muted-foreground {
-  color: hsl(220 10% 70%);
-}
-
-.dark-section .text-foreground {
-  color: hsl(40 10% 92%);
-}
+/* Force white text in dark-background sections */
+.dark-section { color: hsl(40 10% 92%); }
+.dark-section h1, .dark-section h2, .dark-section h3, .dark-section p,
+.dark-section span, .dark-section li, .dark-section div { color: inherit; }
+.dark-section .text-muted-foreground { color: hsl(220 10% 70%); }
+.dark-section .text-foreground { color: hsl(40 10% 92%); }
 
 /* 3D Metallic Button */
 .btn-metallic-3d {
@@ -229,10 +236,8 @@
 .btn-metallic-3d::after {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
   background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
   transform: rotate(30deg);
   opacity: 0;
@@ -250,6 +255,22 @@
   to { transform: translateX(100%) rotate(30deg); }
 }
 
+/* ─── Floating Particles ─── */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particle-float linear infinite;
+}
+
+@keyframes particle-float {
+  0% { transform: translateY(0) translateX(0) scale(0); opacity: 0; }
+  10% { opacity: 1; transform: scale(1); }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-100vh) translateX(50px) scale(0.3); opacity: 0; }
+}
+
+/* ─── Gradient Background Animation ─── */
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -265,6 +286,71 @@
   50% { box-shadow: 0 4px 0px 0px hsl(215 80% 30%), 0 15px 40px -5px hsl(215 80% 50% / 0.7); }
 }
 
+/* ─── Animated gradient border ─── */
+@keyframes border-glow {
+  0%, 100% { border-color: hsl(215 100% 50% / 0.3); }
+  50% { border-color: hsl(215 100% 50% / 0.7); }
+}
+
+.animate-border-glow {
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+/* ─── Text reveal line ─── */
+@keyframes text-reveal-line {
+  0% { width: 0; }
+  50% { width: 100%; }
+  100% { width: 0; left: 100%; }
+}
+
+/* ─── Counter Animation ─── */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .animate-gradient { animation: gradient-shift 6s ease infinite; background-size: 200% 200%; }
 .animate-float { animation: float 4s ease-in-out infinite; }
 .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+/* ─── Hero Orbs ─── */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: orb-drift 8s ease-in-out infinite alternate;
+}
+
+@keyframes orb-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, -20px) scale(1.15); }
+}
+
+/* ─── Stagger children util ─── */
+.stagger-children > * {
+  opacity: 0;
+  animation: fade-stagger 0.6s ease forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fade-stagger {
+  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(12px); }
+}
+
+/* ─── Section divider glow ─── */
+.divider-glow {
+  background: linear-gradient(90deg, transparent, hsl(215 100% 50% / 0.5), transparent);
+  height: 2px;
+  animation: divider-pulse 3s ease-in-out infinite;
+}
+
+@keyframes divider-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}

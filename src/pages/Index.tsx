@@ -43,6 +43,50 @@ function Reveal({ children, className = "", delay = 0, direction = "up" }: { chi
   );
 }
 
+/* ─── Floating Particles Background ────────────────────────── */
+function FloatingParticles({ count = 20, color = "hsl(215 100% 50%)" }: { count?: number; color?: string }) {
+  const particles = Array.from({ length: count }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    size: Math.random() * 4 + 2,
+    duration: Math.random() * 8 + 6,
+    delay: Math.random() * 5,
+    opacity: Math.random() * 0.3 + 0.1,
+  }));
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particles.map(p => (
+        <div
+          key={p.id}
+          className="particle"
+          style={{
+            left: p.left,
+            bottom: "-10px",
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            background: color,
+            animationDuration: `${p.duration}s`,
+            animationDelay: `${p.delay}s`,
+            opacity: p.opacity,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ─── Animated Orbs ────────────────────────────────────────── */
+function HeroOrbs() {
+  return (
+    <>
+      <div className="hero-orb w-[300px] h-[300px] bg-primary/15 top-[10%] left-[10%]" />
+      <div className="hero-orb w-[250px] h-[250px] bg-primary/10 bottom-[15%] right-[10%]" style={{ animationDelay: "2s", animationDuration: "10s" }} />
+      <div className="hero-orb w-[180px] h-[180px] bg-primary/8 top-[50%] left-[50%]" style={{ animationDelay: "4s", animationDuration: "12s" }} />
+    </>
+  );
+}
+
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 /*  LONG-FORM PERSUASIVE LANDING PAGE                            */
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -63,7 +107,7 @@ function CTA({ primary, secondary }: { primary: string; secondary?: string }) {
 }
 
 function Divider() {
-  return <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent mx-auto my-8 sm:my-10" />;
+  return <div className="divider-glow w-32 mx-auto my-8 sm:my-10 rounded-full" />;
 }
 
 function GoldHighlight({ children }: { children: React.ReactNode }) {
@@ -138,6 +182,8 @@ export default function Index() {
         <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden px-4 py-14">
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary animate-gradient" />
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, hsl(215 80% 50% / 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 80%, hsl(215 70% 45% / 0.08) 0%, transparent 50%)" }} />
+          <HeroOrbs />
+          <FloatingParticles count={25} />
 
           <div className="relative z-10 text-center max-w-3xl mx-auto">
             <Reveal>
@@ -329,7 +375,8 @@ export default function Index() {
         </section>
 
         {/* ━━━━━━━━━━━━ SECC CONNECT — DIFERENCIAL ━━━━━━━━━━━━ */}
-        <section className="px-4 py-10 sm:py-14 relative dark-section" style={{ background: "linear-gradient(180deg, hsl(220 30% 8%) 0%, hsl(220 35% 12%) 50%, hsl(220 30% 8%) 100%)" }}>
+        <section className="px-4 py-10 sm:py-14 relative dark-section overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(220 30% 8%) 0%, hsl(220 35% 12%) 50%, hsl(220 30% 8%) 100%)" }}>
+          <FloatingParticles count={15} color="hsl(215 80% 60%)" />
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <div className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary/80 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-6">
@@ -366,7 +413,8 @@ export default function Index() {
         </section>
 
         {/* ━━━━━━━━━━━━ SEU PROFESSOR ━━━━━━━━━━━━ */}
-        <section className="px-4 py-10 sm:py-14 relative dark-section" style={{ background: "linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 35% 10%) 50%, hsl(220 30% 6%) 100%)" }}>
+        <section className="px-4 py-10 sm:py-14 relative dark-section overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 35% 10%) 50%, hsl(220 30% 6%) 100%)" }}>
+          <FloatingParticles count={12} color="hsl(215 70% 55%)" />
           <div className="max-w-3xl mx-auto">
             <Reveal>
               <div className="text-center mb-8">
@@ -469,7 +517,8 @@ export default function Index() {
         <Divider />
 
         {/* ━━━━━━━━━━━━ PLANOS — FUNDO AZUL ━━━━━━━━━━━━ */}
-        <section id="planos" className="py-12 sm:py-16 px-4 relative dark-section" style={{ background: "linear-gradient(135deg, hsl(220 60% 10%), hsl(220 50% 16%), hsl(220 60% 10%))" }}>
+        <section id="planos" className="py-12 sm:py-16 px-4 relative dark-section overflow-hidden" style={{ background: "linear-gradient(135deg, hsl(220 60% 10%), hsl(220 50% 16%), hsl(220 60% 10%))" }}>
+          <FloatingParticles count={18} color="hsl(215 90% 60%)" />
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/8 rounded-full blur-[120px]" />
           </div>
@@ -487,7 +536,7 @@ export default function Index() {
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
               {/* SECC-In */}
               <Reveal>
-                <div className="rounded-2xl p-6 sm:p-8 h-full flex flex-col border border-white/10 bg-white/5 backdrop-blur-sm">
+                <div className="rounded-2xl p-6 sm:p-8 h-full flex flex-col border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/25 hover:-translate-y-2 transition-all duration-500">
                   <h3 className="text-xl font-bold text-white mb-1">SECC-In</h3>
                   <div className="text-3xl font-bold text-white mb-1">{t.lp_plan_free_price}</div>
                   <p className="text-white/50 text-sm mb-6">{t.lp_plan_free_desc}</p>
@@ -507,7 +556,7 @@ export default function Index() {
 
               {/* SECC-Pro */}
               <Reveal delay={150}>
-                <div className="relative rounded-2xl p-6 sm:p-8 h-full flex flex-col border border-primary/40 bg-primary/5 backdrop-blur-sm shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)]">
+                <div className="relative rounded-2xl p-6 sm:p-8 h-full flex flex-col border border-primary/40 bg-primary/5 backdrop-blur-sm shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)] animate-border-glow hover:-translate-y-2 hover:shadow-[0_0_60px_-10px_hsl(var(--primary)/0.5)] transition-all duration-500">
                   <div className="absolute -top-3 right-6 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full">
                     {t.lp_plan_pro_popular}
                   </div>
