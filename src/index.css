@@ -125,14 +125,28 @@
   }
 
   .card-elevated {
-    @apply bg-card border-2 border-border rounded-xl transition-all duration-300 ease-out;
-    box-shadow: 0 6px 24px -4px hsl(215 100% 40% / 0.15), 0 2px 8px -2px hsl(215 100% 40% / 0.1);
+    @apply border-2 border-border rounded-xl transition-all duration-300 ease-out;
+    background: linear-gradient(145deg, hsl(216 20% 95%), hsl(216 25% 89%), hsl(216 20% 92%));
+    box-shadow: 0 6px 24px -4px hsl(215 100% 40% / 0.18), 0 2px 8px -2px hsl(215 100% 40% / 0.12);
+  }
+
+  .dark .card-elevated {
+    background: linear-gradient(145deg, hsl(220 25% 14%), hsl(220 28% 11%), hsl(220 25% 13%));
   }
 
   .card-elevated:hover {
     @apply -translate-y-2;
-    border-color: hsl(215 100% 40% / 0.4);
-    box-shadow: 0 14px 40px -6px hsl(215 100% 40% / 0.28), 0 4px 12px -2px hsl(215 100% 40% / 0.15);
+    border-color: hsl(215 100% 40% / 0.5);
+    box-shadow: 0 16px 44px -6px hsl(215 100% 40% / 0.32), 0 6px 16px -2px hsl(215 100% 40% / 0.18);
+  }
+
+  .btn-pulse {
+    animation: btn-pulse-glow 2.5s ease-in-out infinite;
+  }
+
+  @keyframes btn-pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(215 100% 50% / 0.4); }
+    50% { box-shadow: 0 0 20px 6px hsl(215 100% 50% / 0.25); }
   }
 }
 
