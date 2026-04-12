@@ -182,6 +182,8 @@ export default function Index() {
         <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden px-4 py-14">
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary animate-gradient" />
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, hsl(215 80% 50% / 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 80%, hsl(215 70% 45% / 0.08) 0%, transparent 50%)" }} />
+          <HeroOrbs />
+          <FloatingParticles count={25} />
 
           <div className="relative z-10 text-center max-w-3xl mx-auto">
             <Reveal>
