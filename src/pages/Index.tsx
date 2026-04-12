@@ -31,13 +31,13 @@ function useInView(threshold = 0.1) {
 function Reveal({ children, className = "", delay = 0, direction = "up" }: { children: React.ReactNode; className?: string; delay?: number; direction?: "up" | "left" | "right" | "scale" }) {
   const { ref, inView } = useInView();
   const directionClasses = {
-    up: inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
-    left: inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10",
-    right: inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10",
-    scale: inView ? "opacity-100 scale-100" : "opacity-0 scale-90",
+    up: inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
+    left: inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-16",
+    right: inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-16",
+    scale: inView ? "opacity-100 scale-100" : "opacity-0 scale-85",
   };
   return (
-    <div ref={ref} className={`transition-all duration-700 ease-out ${directionClasses[direction]} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+    <div ref={ref} className={`transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${directionClasses[direction]} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
       {children}
     </div>
   );
@@ -377,7 +377,7 @@ export default function Index() {
             </Reveal>
 
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
-              <Reveal delay={100}>
+              <Reveal delay={100} direction="left">
                 <div className="shrink-0 w-64 sm:w-72 md:w-80">
                   <img src={estevaoPhoto} alt="Estêvão Seccatto" className="w-full rounded-2xl border-2 border-primary/20 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)]" loading="lazy" width={640} height={960} />
                 </div>
