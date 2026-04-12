@@ -12,32 +12,32 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 220 35% 8%;
+    --foreground: 0 0% 0%;
 
-    --card: 216 20% 93%;
-    --card-foreground: 220 35% 8%;
+    --card: 216 25% 90%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 35% 8%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 215 90% 42%;
+    --primary: 215 100% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 18% 88%;
-    --secondary-foreground: 220 35% 8%;
+    --secondary: 220 20% 85%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 220 15% 90%;
-    --muted-foreground: 220 15% 28%;
+    --muted: 220 18% 88%;
+    --muted-foreground: 0 0% 15%;
 
-    --accent: 215 80% 38%;
+    --accent: 215 100% 35%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 215 22% 75%;
-    --input: 215 22% 75%;
-    --ring: 215 90% 42%;
+    --border: 215 30% 70%;
+    --input: 215 30% 70%;
+    --ring: 215 100% 40%;
 
     --radius: 0.75rem;
 
@@ -108,28 +108,31 @@
 
 @layer utilities {
   .glass {
-    @apply bg-card/90 backdrop-blur-xl border border-border shadow-lg;
+    @apply bg-card backdrop-blur-xl border-2 border-border shadow-xl;
   }
 
   .glow-amber {
-    box-shadow: 0 6px 28px -6px hsl(215 80% 42% / 0.25);
+    box-shadow: 0 6px 30px -4px hsl(215 100% 40% / 0.3);
   }
 
   .glow-amber-strong {
-    box-shadow: 0 8px 40px -6px hsl(215 80% 42% / 0.35);
+    box-shadow: 0 10px 50px -6px hsl(215 100% 40% / 0.4);
   }
 
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(215 90% 45%), hsl(200 95% 50%), hsl(215 90% 40%));
+    background-image: linear-gradient(135deg, hsl(215 100% 50%), hsl(200 100% 45%), hsl(215 100% 40%));
   }
 
   .card-elevated {
-    @apply bg-card border border-border rounded-xl shadow-[0_4px_20px_-4px_hsl(215_80%_42%/0.12)] transition-all duration-300;
+    @apply bg-card border-2 border-border rounded-xl transition-all duration-300 ease-out;
+    box-shadow: 0 6px 24px -4px hsl(215 100% 40% / 0.15), 0 2px 8px -2px hsl(215 100% 40% / 0.1);
   }
 
   .card-elevated:hover {
-    @apply shadow-[0_8px_30px_-4px_hsl(215_80%_42%/0.22)] -translate-y-1 border-primary/30;
+    @apply -translate-y-2;
+    border-color: hsl(215 100% 40% / 0.4);
+    box-shadow: 0 14px 40px -6px hsl(215 100% 40% / 0.28), 0 4px 12px -2px hsl(215 100% 40% / 0.15);
   }
 }
 
