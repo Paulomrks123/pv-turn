@@ -4,6 +4,10 @@ import { Button } from "@/components/ui/button";
 import { translations, type LangCode } from "@/lib/translations";
 import seccLogo from "@/assets/secc-logo.png";
 import estevaoPhoto from "@/assets/estevao-seccatto.png";
+import bookPsicologia from "@/assets/book-psicologia.jpg";
+import book100Segredos from "@/assets/book-100segredos.jpg";
+import bookBootcamp from "@/assets/book-bootcamp.jpg";
+import bookSalve from "@/assets/book-salve.jpg";
 import proofRicardo from "@/assets/proof-ricardo.jpg";
 import proofCamila from "@/assets/proof-camila.jpg";
 import proofAndre from "@/assets/proof-andre.jpg";
@@ -400,6 +404,30 @@ export default function Index() {
                 </div>
               </Reveal>
             </div>
+
+            {/* Livros do Professor */}
+            <Reveal delay={300}>
+              <div className="mt-10">
+                <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                  Livros Publicados
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {[
+                    { img: book100Segredos, title: "Turnaround 100 Segredos" },
+                    { img: bookSalve, title: "Salve Seu Negócio" },
+                    { img: bookBootcamp, title: "Turnaround Bootcamp" },
+                    { img: bookPsicologia, title: "Psicologia da Crise" },
+                  ].map((book) => (
+                    <div key={book.title} className="group flex flex-col items-center">
+                      <div className="overflow-hidden rounded-lg border border-primary/20 shadow-lg transition-transform duration-300 group-hover:scale-105">
+                        <img src={book.img} alt={book.title} className="w-full h-auto" loading="lazy" />
+                      </div>
+                      <p className="text-xs text-center text-white/70 mt-2 font-medium">{book.title}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
           </div>
         </section>
 
