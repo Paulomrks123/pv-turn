@@ -290,7 +290,7 @@ export default function Index() {
             ))}
 
             <Reveal delay={500}>
-              <div className="mt-8 glass rounded-xl p-5 border-destructive/20">
+              <div className="mt-8 card-elevated rounded-xl p-5 border-destructive/20">
                 <p className="text-muted-foreground text-sm sm:text-base flex items-start gap-2">
                   <AlertTriangle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                   {t.lp_who_warning}
