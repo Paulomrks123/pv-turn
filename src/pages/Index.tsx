@@ -28,10 +28,16 @@ function useInView(threshold = 0.1) {
   return { ref, inView };
 }
 
-function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function Reveal({ children, className = "", delay = 0, direction = "up" }: { children: React.ReactNode; className?: string; delay?: number; direction?: "up" | "left" | "right" | "scale" }) {
   const { ref, inView } = useInView();
+  const directionClasses = {
+    up: inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+    left: inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10",
+    right: inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10",
+    scale: inView ? "opacity-100 scale-100" : "opacity-0 scale-90",
+  };
   return (
-    <div ref={ref} className={`transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+    <div ref={ref} className={`transition-all duration-700 ease-out ${directionClasses[direction]} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
       {children}
     </div>
   );
@@ -48,8 +54,8 @@ function CTA({ primary, secondary }: { primary: string; secondary?: string }) {
         {primary} <ChevronRight className="w-5 h-5 ml-1" />
       </Button>
       {secondary && (
-        <Button size="lg" variant="outline" className="text-base px-10 py-6 rounded-full border-primary/40 text-primary hover:bg-primary/10">
-          {secondary}
+        <Button size="lg" className="btn-curadoria text-base px-10 py-6 rounded-full border-2 border-primary font-bold">
+          {secondary} <ArrowRight className="w-5 h-5 ml-1" />
         </Button>
       )}
     </div>

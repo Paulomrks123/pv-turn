@@ -148,6 +148,27 @@
     0%, 100% { box-shadow: 0 0 0 0 hsl(215 100% 50% / 0.4); }
     50% { box-shadow: 0 0 20px 6px hsl(215 100% 50% / 0.25); }
   }
+  @keyframes btn-curadoria-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(215 100% 50% / 0.5); }
+    50% { box-shadow: 0 0 24px 8px hsl(215 100% 50% / 0.2); }
+  }
+}
+
+.btn-curadoria {
+  background: linear-gradient(135deg, hsl(215 100% 50%), hsl(200 100% 42%));
+  color: hsl(0 0% 100%);
+  border: none;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  animation: btn-curadoria-pulse 2s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.btn-curadoria:hover {
+  background: linear-gradient(135deg, hsl(215 100% 55%), hsl(200 100% 48%));
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 30px -4px hsl(215 100% 50% / 0.5);
+  color: hsl(0 0% 100%);
 }
 
 /* Force white text in dark-background sections (light mode) */
