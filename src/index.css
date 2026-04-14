@@ -68,7 +68,7 @@
     --secondary-foreground: 40 10% 92%;
 
     --muted: 220 20% 18%;
-    --muted-foreground: 220 10% 55%;
+    --muted-foreground: 220 10% 65%;
 
     --accent: 38 80% 45%;
     --accent-foreground: 220 30% 8%;
@@ -195,11 +195,11 @@
 }
 
 /* Force white text in dark-background sections */
-.dark-section { color: hsl(40 10% 92%); }
+.dark-section { color: hsl(0 0% 95%); }
 .dark-section h1, .dark-section h2, .dark-section h3, .dark-section p,
 .dark-section span, .dark-section li, .dark-section div { color: inherit; }
-.dark-section .text-muted-foreground { color: hsl(220 10% 70%); }
-.dark-section .text-foreground { color: hsl(40 10% 92%); }
+.dark-section .text-muted-foreground { color: hsl(220 15% 78%); }
+.dark-section .text-foreground { color: hsl(0 0% 95%); }
 
 /* 3D Metallic Button */
 .btn-metallic-3d {
