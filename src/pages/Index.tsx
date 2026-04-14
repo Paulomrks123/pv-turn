@@ -209,7 +209,7 @@ export default function Index() {
             </Reveal>
 
             <Reveal delay={250}>
-              <p className="text-xs sm:text-base text-foreground/60 mb-4 leading-relaxed max-w-2xl mx-auto italic">
+              <p className="text-xs sm:text-base text-foreground/50 mb-4 leading-relaxed max-w-2xl mx-auto italic font-medium">
                 {t.lp_hero_desc}
               </p>
             </Reveal>
