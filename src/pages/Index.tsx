@@ -209,7 +209,7 @@ export default function Index() {
             </Reveal>
 
             <Reveal delay={250}>
-              <p className="text-xs sm:text-base text-muted-foreground mb-4 leading-relaxed max-w-2xl mx-auto italic">
+              <p className="text-xs sm:text-base text-foreground/50 mb-4 leading-relaxed max-w-2xl mx-auto italic font-medium">
                 {t.lp_hero_desc}
               </p>
             </Reveal>
@@ -685,7 +685,7 @@ export default function Index() {
         {/* ━━━━━━━━━━━━ FOOTER MÍNIMO ━━━━━━━━━━━━ */}
         <footer className="py-8 px-4 border-t border-border/30 text-center flex flex-col items-center">
           <Logo className="h-10" />
-          <p className="text-muted-foreground text-xs mt-2">© {new Date().getFullYear()} TURN. {t.lp_footer}</p>
+          <p className="text-foreground/50 text-xs mt-2">© {new Date().getFullYear()} TURN. {t.lp_footer}</p>
         </footer>
       </main>
     </LangContext.Provider>
@@ -723,7 +723,7 @@ function FAQSection() {
                 </button>
                 {openIndex === i && (
                   <div className="px-5 pb-5">
-                    <p className="text-muted-foreground text-sm leading-relaxed">{item.a}</p>
+                    <p className="text-foreground/65 text-sm leading-relaxed">{item.a}</p>
                   </div>
                 )}
               </div>
