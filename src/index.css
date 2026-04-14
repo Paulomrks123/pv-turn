@@ -198,7 +198,7 @@
 .dark-section { color: hsl(0 0% 95%); }
 .dark-section h1, .dark-section h2, .dark-section h3, .dark-section p,
 .dark-section span, .dark-section li, .dark-section div { color: inherit; }
-.dark-section .text-muted-foreground { color: hsl(220 15% 78%); }
+.dark-section .text-muted-foreground { color: hsl(220 15% 82%) !important; }
 .dark-section .text-foreground { color: hsl(0 0% 95%); }
 
 /* 3D Metallic Button */
