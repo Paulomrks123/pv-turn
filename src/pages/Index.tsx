@@ -121,7 +121,7 @@ function GoldHighlight({ children }: { children: React.ReactNode }) {
 import turnLogo from "@/assets/turn-logo.png";
 function Logo({ className = "h-8" }: { className?: string }) {
   return (
-    <img src={turnLogo} alt="TURN - Turnaround Network" className={`${className} w-auto object-contain`} />
+    <img src={turnLogo} alt="TURN - Turnaround Network" className={`${className} w-auto object-contain dark:brightness-100 brightness-0`} />
   );
 }
 
