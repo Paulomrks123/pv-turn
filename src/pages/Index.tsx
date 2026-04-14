@@ -117,12 +117,11 @@ function GoldHighlight({ children }: { children: React.ReactNode }) {
   return <span className="text-gradient-gold font-bold">{children}</span>;
 }
 
-/* ─── Logo component (switches for light/dark) ──────────────── */
+/* ─── Logo component ──────────────── */
+import turnLogo from "@/assets/turn-logo.png";
 function Logo({ className = "h-8" }: { className?: string }) {
   return (
-    <>
-      <span className={`font-bold tracking-tight text-foreground ${className === "h-8" ? "text-2xl" : "text-3xl"}`} style={{ fontFamily: "'Space Grotesk', sans-serif" }}>TURN</span>
-    </>
+    <img src={turnLogo} alt="TURN - Turnaround Network" className={`${className} w-auto object-contain`} />
   );
 }
 
