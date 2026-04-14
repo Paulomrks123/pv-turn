@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, createContext, useContext } from "react";
-import { ChevronRight, Check, ArrowRight, Lock, AlertTriangle, X as XIcon, Menu, Sun, Moon } from "lucide-react";
+import { ChevronRight, Check, ArrowRight, Lock, AlertTriangle, X as XIcon, Menu, Sun, Moon, Trophy, Users, Heart, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { translations, type LangCode } from "@/lib/translations";
 import seccLogo from "@/assets/secc-logo.png";
@@ -88,10 +88,8 @@ function HeroOrbs() {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-/*  LONG-FORM PERSUASIVE LANDING PAGE                            */
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-function CTA({ primary, secondary }: { primary: string; secondary?: string }) {
+function CTA({ primary, secondary, tertiary }: { primary: string; secondary?: string; tertiary?: string }) {
   return (
     <div className="flex flex-col sm:flex-row gap-3 justify-center my-6">
       <Button size="lg" className="btn-metallic-3d btn-pulse text-base px-10 py-6 rounded-full border-0 hover:bg-transparent animate-pulse-glow">
@@ -100,6 +98,11 @@ function CTA({ primary, secondary }: { primary: string; secondary?: string }) {
       {secondary && (
         <Button size="lg" className="btn-curadoria text-base px-10 py-6 rounded-full border-2 border-primary font-bold">
           {secondary} <ArrowRight className="w-5 h-5 ml-1" />
+        </Button>
+      )}
+      {tertiary && (
+        <Button size="lg" variant="outline" className="text-base px-10 py-6 rounded-full font-bold">
+          {tertiary}
         </Button>
       )}
     </div>
@@ -118,8 +121,7 @@ function GoldHighlight({ children }: { children: React.ReactNode }) {
 function Logo({ className = "h-8" }: { className?: string }) {
   return (
     <>
-      <img src={seccLogo} alt="SECC" className={`${className} w-auto dark:block hidden`} width={128} height={32} />
-      <span className={`dark:hidden font-bold tracking-tight text-foreground ${className === "h-8" ? "text-2xl" : "text-3xl"}`} style={{ fontFamily: "'Space Grotesk', sans-serif" }}>SECC</span>
+      <span className={`font-bold tracking-tight text-foreground ${className === "h-8" ? "text-2xl" : "text-3xl"}`} style={{ fontFamily: "'Space Grotesk', sans-serif" }}>TURN</span>
     </>
   );
 }
@@ -193,15 +195,23 @@ export default function Index() {
             </Reveal>
 
             <Reveal delay={100} direction="left">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 leading-[1.05]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                {t.lp_hero_h1_1}<br />
-                <GoldHighlight>{t.lp_hero_h1_2}</GoldHighlight>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-2 leading-[1.05]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                <GoldHighlight>{t.lp_hero_h1_1}</GoldHighlight>
               </h1>
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight mb-4 leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                {t.lp_hero_h1_2}
+              </p>
             </Reveal>
 
             <Reveal delay={200} direction="right">
-              <p className="text-base sm:text-lg md:text-xl text-foreground mb-4 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-foreground mb-2 leading-relaxed max-w-2xl mx-auto">
                 {t.lp_hero_sub}
+              </p>
+            </Reveal>
+
+            <Reveal delay={250}>
+              <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed max-w-2xl mx-auto italic">
+                {t.lp_hero_desc}
               </p>
             </Reveal>
 
@@ -211,7 +221,7 @@ export default function Index() {
                 <iframe
                   className="w-full h-full"
                   src="https://www.youtube.com/embed/hQ9nQ-WMuQs?si=UdaqS1cUxVmA_hXU"
-                  title="SECC - Você precisa de negócios"
+                  title="TURN - Business Club de Alto Impacto"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
@@ -220,27 +230,24 @@ export default function Index() {
             </Reveal>
 
             <Reveal delay={400}>
-              <CTA primary={t.lp_cta_main} secondary={t.lp_cta_curadoria} />
+              <CTA primary={t.lp_cta_plans} secondary={t.lp_cta_main} tertiary={t.lp_cta_talk} />
             </Reveal>
           </div>
-
-
         </section>
 
-        {/* ━━━━━━━━━━━━ QUEBRA DE CRENÇA ━━━━━━━━━━━━ */}
+        {/* ━━━━━━━━━━━━ POSICIONAMENTO ━━━━━━━━━━━━ */}
         <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto">
             <Reveal>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-6">
-                {t.lp_break_p1}
-              </p>
-            </Reveal>
-            <Reveal delay={100}>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6">
                 {t.lp_break_h2}
               </h2>
             </Reveal>
-
+            <Reveal delay={100}>
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4">
+                {t.lp_break_p1}
+              </p>
+            </Reveal>
             <Reveal delay={200}>
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4">
                 {t.lp_break_p2}
@@ -254,35 +261,12 @@ export default function Index() {
                 <GoldHighlight>{t.lp_break_gold1}</GoldHighlight>
               </p>
             </Reveal>
-
           </div>
         </section>
 
         <Divider />
 
-        {/* ━━━━━━━━━━━━ O QUE É A SECC — POSICIONAMENTO ━━━━━━━━━━━━ */}
-        <section className="px-4 py-10 sm:py-14">
-          <div className="max-w-2xl mx-auto">
-            <Reveal>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6">
-                {t.lp_pos_h2_1} <GoldHighlight>{t.lp_pos_h2_2}</GoldHighlight>
-              </h2>
-            </Reveal>
-            <Reveal delay={100}>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4">{t.lp_pos_p1}</p>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4">{t.lp_pos_p2}</p>
-            </Reveal>
-            <Reveal delay={300}>
-              <p className="text-foreground font-semibold text-lg sm:text-xl">{t.lp_pos_bold}</p>
-            </Reveal>
-          </div>
-        </section>
-
-        <Divider />
-
-        {/* ━━━━━━━━━━━━ MECANISMO — 3 BLOCOS ━━━━━━━━━━━━ */}
+        {/* ━━━━━━━━━━━━ PILARES — 4 BLOCOS ━━━━━━━━━━━━ */}
         <section className="px-4 py-10 sm:py-14">
           <div className="max-w-3xl mx-auto">
             <Reveal>
@@ -291,23 +275,27 @@ export default function Index() {
               </h2>
             </Reveal>
 
-            {[
-              { num: "01", title: t.lp_mech_1_title, desc: t.lp_mech_1_desc },
-              { num: "02", title: t.lp_mech_2_title, desc: t.lp_mech_2_desc },
-              { num: "03", title: t.lp_mech_3_title, desc: t.lp_mech_3_desc },
-            ].map((item, i) => (
-              <Reveal key={item.num} delay={i * 150} direction="scale">
-                <div className="flex gap-5 sm:gap-6 mb-10 sm:mb-12 card-elevated p-5">
-                  <div className="shrink-0 w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
-                    <span className="text-primary font-bold text-sm">{item.num}</span>
-                  </div>
-                  <div>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {[
+                { num: "01", title: t.lp_mech_1_title, desc: t.lp_mech_1_desc, icon: <Lock className="w-5 h-5 text-primary" /> },
+                { num: "02", title: t.lp_mech_2_title, desc: t.lp_mech_2_desc, icon: <ArrowRight className="w-5 h-5 text-primary" /> },
+                { num: "03", title: t.lp_mech_3_title, desc: t.lp_mech_3_desc, icon: <Heart className="w-5 h-5 text-primary" /> },
+                { num: "04", title: t.lp_mech_4_title, desc: t.lp_mech_4_desc, icon: <Users className="w-5 h-5 text-primary" /> },
+              ].map((item, i) => (
+                <Reveal key={item.num} delay={i * 150} direction={i % 2 === 0 ? "left" : "right"}>
+                  <div className="card-elevated p-6 h-full">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="shrink-0 w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                        {item.icon}
+                      </div>
+                      <span className="text-xs text-primary/60 font-bold">{item.num}</span>
+                    </div>
                     <h3 className="font-bold text-lg sm:text-xl mb-2">{item.title}</h3>
                     <p className="text-muted-foreground text-base leading-relaxed">{item.desc}</p>
                   </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -332,11 +320,19 @@ export default function Index() {
               </h2>
             </Reveal>
 
-            {[t.lp_who_1, t.lp_who_2, t.lp_who_3, t.lp_who_4].map((item, i) => (
-              <Reveal key={i} delay={i * 100}>
-                <div className="flex items-start gap-3 mb-5 card-elevated p-4">
-                  <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <p className="text-foreground text-base sm:text-lg">{item}</p>
+            {[
+              { title: t.lp_who_1, desc: t.lp_who_1_desc },
+              { title: t.lp_who_2, desc: t.lp_who_2_desc },
+              { title: t.lp_who_3, desc: t.lp_who_3_desc },
+              { title: t.lp_who_4, desc: t.lp_who_4_desc },
+            ].map((item, i) => (
+              <Reveal key={i} delay={i * 100} direction={i % 2 === 0 ? "left" : "right"}>
+                <div className="flex items-start gap-3 mb-5 card-elevated p-5">
+                  <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
+                  <div>
+                    <p className="text-foreground text-base sm:text-lg font-bold">{item.title}</p>
+                    <p className="text-muted-foreground text-sm sm:text-base mt-1">{item.desc}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -354,33 +350,38 @@ export default function Index() {
 
         <Divider />
 
-        {/* ━━━━━━━━━━━━ O QUE VOCÊ GANHA ━━━━━━━━━━━━ */}
+        {/* ━━━━━━━━━━━━ O QUE VOCÊ ENCONTRA ━━━━━━━━━━━━ */}
         <section className="px-4 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto">
             <Reveal>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">
                 {t.lp_value_h2}
               </h2>
             </Reveal>
+            <Reveal delay={50}>
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-8">{t.lp_value_desc}</p>
+            </Reveal>
 
-            {[t.lp_value_1, t.lp_value_2, t.lp_value_3, t.lp_value_4, t.lp_value_5, t.lp_value_6].map((item, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <div className="flex items-start gap-3 mb-4 card-elevated p-4">
-                  <div className="w-2 h-2 rounded-full bg-primary shrink-0 mt-2" />
-                  <p className="text-foreground text-base sm:text-lg">{item}</p>
-                </div>
-              </Reveal>
-            ))}
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[t.lp_value_1, t.lp_value_2, t.lp_value_3, t.lp_value_4].map((item, i) => (
+                <Reveal key={i} delay={i * 80} direction="scale">
+                  <div className="card-elevated p-5 text-center h-full flex flex-col items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-primary mb-3" />
+                    <p className="text-foreground text-base sm:text-lg font-semibold">{item}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* ━━━━━━━━━━━━ SECC CONNECT — DIFERENCIAL ━━━━━━━━━━━━ */}
+        {/* ━━━━━━━━━━━━ TURN CONNECT — DIFERENCIAL ━━━━━━━━━━━━ */}
         <section className="px-4 py-10 sm:py-14 relative dark-section overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(220 30% 8%) 0%, hsl(220 35% 12%) 50%, hsl(220 30% 8%) 100%)" }}>
           <FloatingParticles count={15} color="hsl(215 80% 60%)" />
           <div className="max-w-2xl mx-auto">
             <Reveal>
               <div className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary/80 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-6">
-                SECC Connect
+                TURN Connect
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 leading-tight">
                 {t.lp_connect_h2_1}<br />
@@ -407,19 +408,81 @@ export default function Index() {
             ))}
 
             <Reveal delay={500}>
+              <p className="text-center text-lg font-bold text-white mt-6">{t.lp_connect_phrase}</p>
+            </Reveal>
+
+            <Reveal delay={600}>
               <CTA primary={t.lp_cta_main} secondary={t.lp_cta_curadoria} />
             </Reveal>
           </div>
         </section>
 
-        {/* ━━━━━━━━━━━━ SEU PROFESSOR ━━━━━━━━━━━━ */}
+        {/* ━━━━━━━━━━━━ GAMIFICAÇÃO ━━━━━━━━━━━━ */}
+        <section className="px-4 py-10 sm:py-14">
+          <div className="max-w-2xl mx-auto">
+            <Reveal>
+              <div className="text-center mb-8">
+                <div className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary/80 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-6">
+                  <Trophy className="w-4 h-4 inline mr-2" />
+                  Gamificação
+                </div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4">
+                  {t.lp_gamif_h2}
+                </h2>
+                <p className="text-muted-foreground text-base sm:text-lg italic">{t.lp_gamif_desc}</p>
+              </div>
+            </Reveal>
+
+            <div className="grid sm:grid-cols-2 gap-4 mb-6">
+              {[t.lp_gamif_1, t.lp_gamif_2, t.lp_gamif_3, t.lp_gamif_4].map((item, i) => (
+                <Reveal key={i} delay={i * 100} direction="scale">
+                  <div className="card-elevated p-4 text-center">
+                    <p className="text-foreground font-semibold text-base">{item}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal delay={500}>
+              <div className="card-elevated p-6 text-center border-primary/30">
+                <Star className="w-8 h-8 text-primary mx-auto mb-3" />
+                <p className="text-foreground font-bold text-lg">{t.lp_gamif_milestone}</p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <Divider />
+
+        {/* ━━━━━━━━━━━━ PERTENCIMENTO ━━━━━━━━━━━━ */}
+        <section className="px-4 py-10 sm:py-14 relative dark-section overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 35% 10%) 50%, hsl(220 30% 6%) 100%)" }}>
+          <FloatingParticles count={12} color="hsl(215 70% 55%)" />
+          <div className="max-w-2xl mx-auto text-center">
+            <Reveal>
+              <Heart className="w-12 h-12 text-primary mx-auto mb-6" />
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight text-white">
+                {t.lp_belong_h2}
+              </h2>
+            </Reveal>
+            <Reveal delay={100}>
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-lg mx-auto mb-6">
+                {t.lp_belong_desc}
+              </p>
+            </Reveal>
+            <Reveal delay={200}>
+              <CTA primary={t.lp_cta_main} />
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ━━━━━━━━━━━━ SEU FUNDADOR ━━━━━━━━━━━━ */}
         <section className="px-4 py-10 sm:py-14 relative dark-section overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 35% 10%) 50%, hsl(220 30% 6%) 100%)" }}>
           <FloatingParticles count={12} color="hsl(215 70% 55%)" />
           <div className="max-w-3xl mx-auto">
             <Reveal>
               <div className="text-center mb-8">
                 <div className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary/80 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-6">
-                  Seu Professor
+                  Fundador
                 </div>
               </div>
             </Reveal>
@@ -434,14 +497,13 @@ export default function Index() {
               <Reveal delay={200}>
                 <div>
                   <h2 className="text-3xl sm:text-4xl font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Estêvão Seccatto</h2>
-                  <p className="text-primary font-semibold text-base mb-5">Empreendedor em Série • Presidente do TURN</p>
+                  <p className="text-primary font-semibold text-base mb-5">Empreendedor em Série • Presidente da TURN</p>
                   
                   <div className="space-y-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
                     <p>Especializado em resolver situações complexas (crise e pressão de tempo) com abordagem holística, criando valor, orientado à execução e a resultados, capaz de reunir competências e liderar equipes de alto desempenho.</p>
                     <p>Ao longo de 2 décadas, +130 empresas assessoradas (turnaround, reestruturação, M&A, mercado de capitais, captação de recursos, negociação de dívidas), com diversos portes, setores e tipos de desafios. +R$20 bilhões em transações realizadas.</p>
-                    <p>Professor e Coordenador de Turnaround na FIA Business School, Empiricus Research e Mundo Financeiro (primeiro e único Certificado em Turnaround 100% online), além de criador do Bootcamp de Turnaround. Colunista da Agência Estado, Money Times e SBT News.</p>
-                    <p>Coordenador de colocação de refugiados da Associação Compassiva (pro-bono).</p>
-                    <p>Presidente do TURN, uma das maiores associações de profissionais atuantes em turnaround e reestruturação empresarial do Brasil.</p>
+                    <p>Professor e Coordenador de Turnaround na FIA Business School, Empiricus Research e Mundo Financeiro. Colunista da Agência Estado, Money Times e SBT News.</p>
+                    <p>Presidente da TURN, uma das maiores associações de profissionais atuantes em turnaround e reestruturação empresarial do Brasil.</p>
                   </div>
 
                   <div className="mt-6 flex flex-wrap gap-3">
@@ -449,7 +511,7 @@ export default function Index() {
                       "+130 empresas assessoradas",
                       "+R$ 20 BI em transações",
                       "Professor FIA Business School",
-                      "Presidente do TURN",
+                      "Presidente da TURN",
                       "Colunista Agência Estado & SBT News",
                     ].map((badge) => (
                       <span key={badge} className="text-xs font-semibold bg-primary/10 text-primary border border-primary/20 rounded-full px-3 py-1.5">{badge}</span>
@@ -459,7 +521,7 @@ export default function Index() {
               </Reveal>
             </div>
 
-            {/* Livros do Professor */}
+            {/* Livros */}
             <Reveal delay={300}>
               <div className="mt-10">
                 <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
@@ -516,7 +578,7 @@ export default function Index() {
 
         <Divider />
 
-        {/* ━━━━━━━━━━━━ PLANOS — FUNDO AZUL ━━━━━━━━━━━━ */}
+        {/* ━━━━━━━━━━━━ PLANOS ━━━━━━━━━━━━ */}
         <section id="planos" className="py-12 sm:py-16 px-4 relative dark-section overflow-hidden" style={{ background: "linear-gradient(135deg, hsl(220 60% 10%), hsl(220 50% 16%), hsl(220 60% 10%))" }}>
           <FloatingParticles count={18} color="hsl(215 90% 60%)" />
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -534,10 +596,10 @@ export default function Index() {
             </Reveal>
 
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-              {/* SECC-In */}
+              {/* Turn-In */}
               <Reveal>
                 <div className="rounded-2xl p-6 sm:p-8 h-full flex flex-col border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/25 hover:-translate-y-2 transition-all duration-500">
-                  <h3 className="text-xl font-bold text-white mb-1">SECC-In</h3>
+                  <h3 className="text-xl font-bold text-white mb-1">Turn-In</h3>
                   <div className="text-3xl font-bold text-white mb-1">{t.lp_plan_free_price}</div>
                   <p className="text-white/50 text-sm mb-6">{t.lp_plan_free_desc}</p>
                   <ul className="space-y-3 mb-8 flex-1">
@@ -554,13 +616,13 @@ export default function Index() {
                 </div>
               </Reveal>
 
-              {/* SECC-Pro */}
+              {/* Turn-Around */}
               <Reveal delay={150}>
                 <div className="relative rounded-2xl p-6 sm:p-8 h-full flex flex-col border border-primary/40 bg-primary/5 backdrop-blur-sm shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)] animate-border-glow hover:-translate-y-2 hover:shadow-[0_0_60px_-10px_hsl(var(--primary)/0.5)] transition-all duration-500">
                   <div className="absolute -top-3 right-6 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full">
                     {t.lp_plan_pro_popular}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-1">SECC-Pro</h3>
+                  <h3 className="text-xl font-bold text-white mb-1">Turn-Around</h3>
                   <div className="text-3xl font-bold text-white mb-1">{t.lp_plan_pro_price}</div>
                   <p className="text-white/50 text-sm mb-6">{t.lp_plan_pro_desc}</p>
                   <ul className="space-y-3 mb-8 flex-1">
@@ -616,7 +678,7 @@ export default function Index() {
                 <GoldHighlight>{t.lp_final_h2_2}</GoldHighlight>
               </h2>
               <p className="text-muted-foreground mb-8 text-base sm:text-lg max-w-md mx-auto">{t.lp_final_desc}</p>
-              <CTA primary={t.lp_cta_main} secondary={t.lp_cta_curadoria} />
+              <CTA primary={t.lp_cta_plans} secondary={t.lp_cta_main} tertiary={t.lp_cta_curadoria} />
             </div>
           </Reveal>
         </section>
@@ -624,7 +686,7 @@ export default function Index() {
         {/* ━━━━━━━━━━━━ FOOTER MÍNIMO ━━━━━━━━━━━━ */}
         <footer className="py-8 px-4 border-t border-border/30 text-center flex flex-col items-center">
           <Logo className="h-10" />
-          <p className="text-muted-foreground text-xs mt-2">© {new Date().getFullYear()} SECC. {t.lp_footer}</p>
+          <p className="text-muted-foreground text-xs mt-2">© {new Date().getFullYear()} TURN. {t.lp_footer}</p>
         </footer>
       </main>
     </LangContext.Provider>
