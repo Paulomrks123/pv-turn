@@ -80,9 +80,9 @@ function FloatingParticles({ count = 20, color = "hsl(215 100% 50%)" }: { count?
 function HeroOrbs() {
   return (
     <>
-      <div className="hero-orb w-[300px] h-[300px] bg-primary/15 top-[10%] left-[10%]" />
-      <div className="hero-orb w-[250px] h-[250px] bg-primary/10 bottom-[15%] right-[10%]" style={{ animationDelay: "2s", animationDuration: "10s" }} />
-      <div className="hero-orb w-[180px] h-[180px] bg-primary/8 top-[50%] left-[50%]" style={{ animationDelay: "4s", animationDuration: "12s" }} />
+      <div className="hero-orb w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] bg-primary/8 top-[10%] left-[10%]" />
+      <div className="hero-orb w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] bg-primary/6 bottom-[15%] right-[10%]" style={{ animationDelay: "2s", animationDuration: "10s" }} />
+      <div className="hero-orb w-[100px] h-[100px] sm:w-[180px] sm:h-[180px] bg-primary/5 top-[50%] left-[50%]" style={{ animationDelay: "4s", animationDuration: "12s" }} />
     </>
   );
 }
