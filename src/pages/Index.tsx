@@ -80,9 +80,9 @@ function FloatingParticles({ count = 20, color = "hsl(215 100% 50%)" }: { count?
 function HeroOrbs() {
   return (
     <>
-      <div className="hero-orb w-[300px] h-[300px] bg-primary/15 top-[10%] left-[10%]" />
-      <div className="hero-orb w-[250px] h-[250px] bg-primary/10 bottom-[15%] right-[10%]" style={{ animationDelay: "2s", animationDuration: "10s" }} />
-      <div className="hero-orb w-[180px] h-[180px] bg-primary/8 top-[50%] left-[50%]" style={{ animationDelay: "4s", animationDuration: "12s" }} />
+      <div className="hero-orb w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] bg-primary/8 top-[10%] left-[10%]" />
+      <div className="hero-orb w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] bg-primary/6 bottom-[15%] right-[10%]" style={{ animationDelay: "2s", animationDuration: "10s" }} />
+      <div className="hero-orb w-[100px] h-[100px] sm:w-[180px] sm:h-[180px] bg-primary/5 top-[50%] left-[50%]" style={{ animationDelay: "4s", animationDuration: "12s" }} />
     </>
   );
 }
@@ -180,11 +180,11 @@ export default function Index() {
         </div>
 
         {/* ━━━━━━━━━━━━ HERO — ABOVE THE FOLD ━━━━━━━━━━━━ */}
-        <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden px-4 py-14">
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary animate-gradient" />
-          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, hsl(215 80% 50% / 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 80%, hsl(215 70% 45% / 0.08) 0%, transparent 50%)" }} />
+        <section className="relative min-h-[80vh] sm:min-h-[85vh] flex items-center justify-center overflow-hidden px-4 py-10 sm:py-14">
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/50 animate-gradient" />
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, hsl(215 80% 50% / 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 80%, hsl(215 70% 45% / 0.08) 0%, transparent 50%)" }} />
           <HeroOrbs />
-          <FloatingParticles count={25} />
+          <FloatingParticles count={15} />
 
           <div className="relative z-10 text-center max-w-3xl mx-auto">
             <Reveal>
@@ -194,22 +194,22 @@ export default function Index() {
             </Reveal>
 
             <Reveal delay={100} direction="left">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-2 leading-[1.05]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-2 leading-[1.05]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                 <GoldHighlight>{t.lp_hero_h1_1}</GoldHighlight>
               </h1>
-              <p className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight mb-4 leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              <p className="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight mb-4 leading-tight text-foreground" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                 {t.lp_hero_h1_2}
               </p>
             </Reveal>
 
             <Reveal delay={200} direction="right">
-              <p className="text-base sm:text-lg md:text-xl text-foreground mb-2 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-sm sm:text-lg md:text-xl text-foreground mb-2 leading-relaxed max-w-2xl mx-auto font-medium">
                 {t.lp_hero_sub}
               </p>
             </Reveal>
 
             <Reveal delay={250}>
-              <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed max-w-2xl mx-auto italic">
+              <p className="text-xs sm:text-base text-muted-foreground mb-4 leading-relaxed max-w-2xl mx-auto italic">
                 {t.lp_hero_desc}
               </p>
             </Reveal>
@@ -243,12 +243,12 @@ export default function Index() {
               </h2>
             </Reveal>
             <Reveal delay={100}>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4">
+              <p className="text-foreground/80 text-base sm:text-lg leading-relaxed mb-4 font-medium">
                 {t.lp_break_p1}
               </p>
             </Reveal>
             <Reveal delay={200}>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4">
+              <p className="text-foreground/80 text-base sm:text-lg leading-relaxed mb-4 font-medium">
                 {t.lp_break_p2}
               </p>
             </Reveal>
@@ -290,7 +290,7 @@ export default function Index() {
                       <span className="text-xs text-primary/60 font-bold">{item.num}</span>
                     </div>
                     <h3 className="font-bold text-lg sm:text-xl mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground text-base leading-relaxed">{item.desc}</p>
+                    <p className="text-foreground/70 text-base leading-relaxed">{item.desc}</p>
                   </div>
                 </Reveal>
               ))}
@@ -330,7 +330,7 @@ export default function Index() {
                   <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
                   <div>
                     <p className="text-foreground text-base sm:text-lg font-bold">{item.title}</p>
-                    <p className="text-muted-foreground text-sm sm:text-base mt-1">{item.desc}</p>
+                    <p className="text-foreground/70 text-sm sm:text-base mt-1">{item.desc}</p>
                   </div>
                 </div>
               </Reveal>
@@ -338,7 +338,7 @@ export default function Index() {
 
             <Reveal delay={500}>
               <div className="mt-8 card-elevated rounded-xl p-5 border-destructive/20">
-                <p className="text-muted-foreground text-sm sm:text-base flex items-start gap-2">
+                <p className="text-foreground/70 text-sm sm:text-base flex items-start gap-2">
                   <AlertTriangle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                   {t.lp_who_warning}
                 </p>
@@ -358,7 +358,7 @@ export default function Index() {
               </h2>
             </Reveal>
             <Reveal delay={50}>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-8">{t.lp_value_desc}</p>
+              <p className="text-foreground/70 text-base sm:text-lg leading-relaxed mb-8">{t.lp_value_desc}</p>
             </Reveal>
 
             <div className="grid sm:grid-cols-2 gap-4">
@@ -428,7 +428,7 @@ export default function Index() {
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4">
                   {t.lp_gamif_h2}
                 </h2>
-                <p className="text-muted-foreground text-base sm:text-lg italic">{t.lp_gamif_desc}</p>
+                <p className="text-foreground/70 text-base sm:text-lg italic">{t.lp_gamif_desc}</p>
               </div>
             </Reveal>
 
@@ -651,7 +651,7 @@ export default function Index() {
               </h2>
             </Reveal>
             <Reveal delay={100}>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-lg mx-auto mb-3">
+              <p className="text-foreground/70 text-base sm:text-lg leading-relaxed max-w-lg mx-auto mb-3">
                 {t.lp_urgency_p1}
               </p>
               <p className="text-foreground font-semibold text-lg">
@@ -676,7 +676,7 @@ export default function Index() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 leading-tight">
                 <GoldHighlight>{t.lp_final_h2_2}</GoldHighlight>
               </h2>
-              <p className="text-muted-foreground mb-8 text-base sm:text-lg max-w-md mx-auto">{t.lp_final_desc}</p>
+              <p className="text-foreground/70 mb-8 text-base sm:text-lg max-w-md mx-auto">{t.lp_final_desc}</p>
               <CTA primary={t.lp_cta_plans} secondary={t.lp_cta_main} tertiary={t.lp_cta_curadoria} />
             </div>
           </Reveal>
