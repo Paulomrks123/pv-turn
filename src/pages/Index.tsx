@@ -159,7 +159,7 @@ function TopBar() {
           <Logo className="h-8" />
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button size="sm" className="btn-metallic-3d btn-pulse rounded-full border-0 hover:bg-transparent text-sm px-5">
+            <Button size="sm" className="btn-metallic-3d btn-pulse rounded-full border-0 hover:bg-transparent text-sm px-5" onClick={scrollToPlanos}>
               {t.lp_cta_short} <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
