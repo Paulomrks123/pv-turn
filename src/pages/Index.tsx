@@ -243,12 +243,12 @@ export default function Index() {
               </h2>
             </Reveal>
             <Reveal delay={100}>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4">
+              <p className="text-foreground/80 text-base sm:text-lg leading-relaxed mb-4 font-medium">
                 {t.lp_break_p1}
               </p>
             </Reveal>
             <Reveal delay={200}>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4">
+              <p className="text-foreground/80 text-base sm:text-lg leading-relaxed mb-4 font-medium">
                 {t.lp_break_p2}
               </p>
             </Reveal>
@@ -290,7 +290,7 @@ export default function Index() {
                       <span className="text-xs text-primary/60 font-bold">{item.num}</span>
                     </div>
                     <h3 className="font-bold text-lg sm:text-xl mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground text-base leading-relaxed">{item.desc}</p>
+                    <p className="text-foreground/70 text-base leading-relaxed">{item.desc}</p>
                   </div>
                 </Reveal>
               ))}
@@ -330,7 +330,7 @@ export default function Index() {
                   <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
                   <div>
                     <p className="text-foreground text-base sm:text-lg font-bold">{item.title}</p>
-                    <p className="text-muted-foreground text-sm sm:text-base mt-1">{item.desc}</p>
+                    <p className="text-foreground/70 text-sm sm:text-base mt-1">{item.desc}</p>
                   </div>
                 </div>
               </Reveal>
@@ -338,7 +338,7 @@ export default function Index() {
 
             <Reveal delay={500}>
               <div className="mt-8 card-elevated rounded-xl p-5 border-destructive/20">
-                <p className="text-muted-foreground text-sm sm:text-base flex items-start gap-2">
+                <p className="text-foreground/70 text-sm sm:text-base flex items-start gap-2">
                   <AlertTriangle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                   {t.lp_who_warning}
                 </p>
@@ -358,7 +358,7 @@ export default function Index() {
               </h2>
             </Reveal>
             <Reveal delay={50}>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-8">{t.lp_value_desc}</p>
+              <p className="text-foreground/70 text-base sm:text-lg leading-relaxed mb-8">{t.lp_value_desc}</p>
             </Reveal>
 
             <div className="grid sm:grid-cols-2 gap-4">
