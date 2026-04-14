@@ -180,11 +180,11 @@ export default function Index() {
         </div>
 
         {/* ━━━━━━━━━━━━ HERO — ABOVE THE FOLD ━━━━━━━━━━━━ */}
-        <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden px-4 py-14">
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary animate-gradient" />
-          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, hsl(215 80% 50% / 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 80%, hsl(215 70% 45% / 0.08) 0%, transparent 50%)" }} />
+        <section className="relative min-h-[80vh] sm:min-h-[85vh] flex items-center justify-center overflow-hidden px-4 py-10 sm:py-14">
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/50 animate-gradient" />
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, hsl(215 80% 50% / 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 80%, hsl(215 70% 45% / 0.08) 0%, transparent 50%)" }} />
           <HeroOrbs />
-          <FloatingParticles count={25} />
+          <FloatingParticles count={15} />
 
           <div className="relative z-10 text-center max-w-3xl mx-auto">
             <Reveal>
@@ -194,22 +194,22 @@ export default function Index() {
             </Reveal>
 
             <Reveal delay={100} direction="left">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-2 leading-[1.05]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-2 leading-[1.05]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                 <GoldHighlight>{t.lp_hero_h1_1}</GoldHighlight>
               </h1>
-              <p className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight mb-4 leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              <p className="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight mb-4 leading-tight text-foreground" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                 {t.lp_hero_h1_2}
               </p>
             </Reveal>
 
             <Reveal delay={200} direction="right">
-              <p className="text-base sm:text-lg md:text-xl text-foreground mb-2 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-sm sm:text-lg md:text-xl text-foreground mb-2 leading-relaxed max-w-2xl mx-auto font-medium">
                 {t.lp_hero_sub}
               </p>
             </Reveal>
 
             <Reveal delay={250}>
-              <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed max-w-2xl mx-auto italic">
+              <p className="text-xs sm:text-base text-muted-foreground mb-4 leading-relaxed max-w-2xl mx-auto italic">
                 {t.lp_hero_desc}
               </p>
             </Reveal>
