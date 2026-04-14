@@ -428,7 +428,7 @@ export default function Index() {
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4">
                   {t.lp_gamif_h2}
                 </h2>
-                <p className="text-muted-foreground text-base sm:text-lg italic">{t.lp_gamif_desc}</p>
+                <p className="text-foreground/70 text-base sm:text-lg italic">{t.lp_gamif_desc}</p>
               </div>
             </Reveal>
 
@@ -651,7 +651,7 @@ export default function Index() {
               </h2>
             </Reveal>
             <Reveal delay={100}>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-lg mx-auto mb-3">
+              <p className="text-foreground/70 text-base sm:text-lg leading-relaxed max-w-lg mx-auto mb-3">
                 {t.lp_urgency_p1}
               </p>
               <p className="text-foreground font-semibold text-lg">
@@ -676,7 +676,7 @@ export default function Index() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 leading-tight">
                 <GoldHighlight>{t.lp_final_h2_2}</GoldHighlight>
               </h2>
-              <p className="text-muted-foreground mb-8 text-base sm:text-lg max-w-md mx-auto">{t.lp_final_desc}</p>
+              <p className="text-foreground/70 mb-8 text-base sm:text-lg max-w-md mx-auto">{t.lp_final_desc}</p>
               <CTA primary={t.lp_cta_plans} secondary={t.lp_cta_main} tertiary={t.lp_cta_curadoria} />
             </div>
           </Reveal>
