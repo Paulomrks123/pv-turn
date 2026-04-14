@@ -89,14 +89,18 @@ function HeroOrbs() {
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
+function scrollToPlanos() {
+  document.getElementById("planos")?.scrollIntoView({ behavior: "smooth" });
+}
+
 function CTA({ primary, secondary, tertiary }: { primary: string; secondary?: string; tertiary?: string }) {
   return (
     <div className="flex flex-col sm:flex-row gap-3 justify-center my-6">
-      <Button size="lg" className="btn-metallic-3d btn-pulse text-base px-10 py-6 rounded-full border-0 hover:bg-transparent animate-pulse-glow">
+      <Button size="lg" className="btn-metallic-3d btn-pulse text-base px-10 py-6 rounded-full border-0 hover:bg-transparent animate-pulse-glow" onClick={scrollToPlanos}>
         {primary} <ChevronRight className="w-5 h-5 ml-1" />
       </Button>
       {secondary && (
-        <Button size="lg" className="btn-curadoria text-base px-10 py-6 rounded-full border-2 border-primary font-bold">
+        <Button size="lg" className="btn-curadoria text-base px-10 py-6 rounded-full border-2 border-primary font-bold" onClick={scrollToPlanos}>
           {secondary} <ArrowRight className="w-5 h-5 ml-1" />
         </Button>
       )}
